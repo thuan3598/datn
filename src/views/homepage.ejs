@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-time Air Quality Index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/calStyle.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <header class="header fixed">
+      <div class="main-content">
+        <div class="body">
+          <!-- logo -->
+          <img src="assets/icon/aqi-logo.svg" alt="Lesson." class="logo" />
+
+          <!-- search -->
+          <div class="search-box">
+            <div class="search-box-container">
+              <div class="search-icon">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </div>
+              <input
+                type="text"
+                class="search-input"
+                id="search-input"
+                placeholder="Search Location City or Area"
+              />
+              <div class="image-gps">
+                <img
+                  src="https://www.aqi.in/assets/images/gps.svg"
+                  alt="Gps image"
+                  width="20"
+                  height="20"
+                  class="gps_image"
+                />
+              </div>
+            </div>
+
+            <div class="products hide">
+              <div>
+                <h3>Loading...</h3>
+              </div>
+            </div>
+          </div>
+          <!-- nav  -->
+           <!-- <nav class="nav">
+            <ul>
+              <li class="active">
+                <a href="#!">Home</a>
+              </li>
+              <li>
+                <a href="#!">Courses</a>
+              </li>
+              <li>
+                <a href="#!">Pricing</a>
+              </li>
+              <li>
+                <a href="#!">Reviews</a>
+              </li>
+            </ul>
+          </nav>  -->
+          <!-- btn action -->
+          <!-- .action>a.btn{Sign Up} -->
+          <div class="action">
+            <div class="btn btn-sign-up">Login</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===========================================MAIN======================================================================= -->
+    <main>
+      <!-- map-box -->
+      <div class="map-box">
+        <div class="map-box-container" style="background-image: url(../assets/image/Minh_Khai.JPG);"></div>
+        <div class="map_fillter_top">
+          <div
+            id="aqibar"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1"
+            title
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >AQI</span
+            >
+            <span
+              style="background: rgb(126, 0, 35); color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >300+</span
+            >
+            <span
+              style="background: rgb(143,63,151); color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >200</span
+            >
+            <span
+              style="background: rgb(255,0,0); color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >150</span
+            >
+            <span
+              style="background: rgb(255,126,0); color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >100</span
+            >
+            <span
+              style="background: rgb(255,255,0); color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >50</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0</span
+            >
+          </div>
+
+          <div
+            id="pm25bar"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >µg/m³</span
+            >
+            <span
+              style="background: #ec0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >250+</span
+            >
+            <span
+              style="background: #800080; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >250</span
+            >
+            <span
+              style="background: #BF2133; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >120</span
+            >
+            <span
+              style="background: #ffa500; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >90</span
+            >
+            <span
+              style="background: #d4cc0f; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >60</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >30</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0</span
+            >
+          </div>
+
+          <div
+            id="pm10bar"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >µg/m³</span
+            >
+            <span
+              style="background: #ec0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >430+</span
+            >
+            <span
+              style="background: #800080; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >430</span
+            >
+            <span
+              style="background: #BF2133; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >350</span
+            >
+            <span
+              style="background: #ffa500; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >250</span
+            >
+            <span
+              style="background: #d4cc0f; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >100</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >50</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0</span
+            >
+          </div>
+
+          <div
+            id="tempbar"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >°C</span
+            >
+            <span
+              style="background: #c11e2f; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >45+</span
+            >
+            <span
+              style="background: #ec0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >45</span
+            >
+            <span
+              style="background: #ffc0cb; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >40</span
+            >
+            <span
+              style="background: #ffa500; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >35</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >30</span
+            >
+            <span
+              style="background: #0d98ba; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >20</span
+            >
+            <span
+              style="background: #add8e6; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >15</span
+            >
+            <span
+              style="background: #0000ff; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >8</span
+            >
+            <span
+              style="background: #0000ff; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0</span
+            >
+            <span
+              style="background: #003366; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >-10</span
+            >
+          </div>
+
+          <div
+            id="humbar"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title="Change units to “°C”"
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >%</span
+            >
+            <span
+              style="background: #003366; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >75+</span
+            >
+            <span
+              style="background: #0000ff; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >75</span
+            >
+            <span
+              style="background: #add8e6; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >65</span
+            >
+            <span
+              style="background: #34a12b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >55</span
+            >
+            <span
+              style="background: #9acd32; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >40</span
+            >
+            <span
+              style="background: #ffff00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >20</span
+            >
+            <span
+              style="background: #ffff00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0</span
+            >
+          </div>
+          <div
+            id="wind"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title="Change units to “°C”"
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >noeuds</span
+            >
+            <span
+              style="background: #8c0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >58.8+</span
+            >
+            <span
+              style="background: #b70000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >58.8</span
+            >
+            <span
+              style="background: #fe1b00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >51.9</span
+            >
+            <span
+              style="background: #febf00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >41.5</span
+            >
+            <span
+              style="background: #9bfe63; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >31.2</span
+            >
+            <span
+              style="background: #00e9fe; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >20.8</span
+            >
+            <span
+              style="background: #001dfe; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >10.4</span
+            >
+            <span
+              style="background: #000089; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.0</span
+            >
+          </div>
+          <div
+            id="pressure"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title="Change units to “°C”"
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >mb</span
+            >
+            <span
+              style="background: #890000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >1039+</span
+            >
+            <span
+              style="background: #ed0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >1000</span
+            >
+            <span
+              style="background: #fe9f00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >900</span
+            >
+            <span
+              style="background: #b7fe47; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >800</span
+            >
+            <span
+              style="background: #00fdff; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >700</span
+            >
+            <span
+              style="background: #0036fe; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >600</span
+            >
+            <span
+              style="background: #00008c; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >500</span
+            >
+          </div>
+          <div
+            id="clouds"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title="Change units to “°C”"
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              >%</span
+            >
+            <span
+              style="background: #020202; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.983+</span
+            >
+            <span
+              style="background: #1f1f1f; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.900</span
+            >
+            <span
+              style="background: #4f4f4f; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.700</span
+            >
+            <span
+              style="background: #6b6b6b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.600</span
+            >
+            <span
+              style="background: #a3a3a3; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.400</span
+            >
+            <span
+              style="background: #dbdbdb; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.200</span
+            >
+            <span
+              style="background: #f5f5f5; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.100</span
+            >
+          </div>
+          <div
+            id="rain"
+            style="display: none"
+            class="map_fillter_inner_toggle map_fillter_inner_toggle_1 position-absolute"
+            title="Change units to “°C”"
+          >
+            <span
+              class="yy d-block text-center flag_fill_color flag_fill_color_16 nunito_sans bold_700 bg-white weather_top"
+              style="font-size: 60%"
+              >QPF(mm)</span
+            >
+            <span
+              style="background: #bb0000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >100+</span
+            >
+            <span
+              style="background: #f70000; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >100.0</span
+            >
+            <span
+              style="background: #fe3f00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >50.0</span
+            >
+            <span
+              style="background: #fe8b00; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >20.0</span
+            >
+            <span
+              style="background: #e3fe1b; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >10.0</span
+            >
+            <span
+              style="background: #4ffdaf; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >5.0</span
+            >
+            <span
+              style="background: #00adfe; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >1.0</span
+            >
+            <span
+              style="background: #0000bb; color: rgb(255, 255, 255)"
+              class="ew d-block text-center flag_fill_color nunito_sans bold_700"
+              >0.10</span
+            >
+          </div>
+        </div>
+
+        <div class="temperature-position">
+          <div class="position">
+            <i class="fa-solid fa-location-dot"></i>
+            <p class="position-text">Minh Khai-Hai Ba Trung-Ha Noi</p>
+          </div>
+
+          <div class="thermometer" bis_skin_checked="1">
+            <div id="progress_ring" bis_skin_checked="1">
+              <svg  id="aqiGauge" viewBox="0 0 100 100" style="display: block; width: 100%">
+                <path
+                  d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92"
+                  stroke="#eee"
+                  stroke-width="7"
+                  fill-opacity="0"
+                ></path>
+                <path id="aqiPath"
+                  d="M 50,50 m 0,-46 a 46,46 0 1 1 0,92 a 46,46 0 1 1 0,-92"
+                  stroke="rgb(52,161,43)"
+                  stroke-width="9"
+                  fill-opacity="0"
+                  style="
+                    stroke-dasharray: 289.067, 289.067;
+                    stroke-dashoffset: 280.676;
+                  "
+                ></path>
+              </svg>
+              <div class="progressbar-text" bis_skin_checked="1">
+                <% if (data && data.length > 0) { %> <%= data[0].aqi %> <% }
+                else { %> 0 <% } %>
+              </div>
+            </div>
+
+            <div class="te_title" bis_skin_checked="1">Air Quality Index</div>
+            <center>
+              <div class="te_subtitle" id="myloc-aqitext" bis_skin_checked="1">
+                MODERATE
+              </div>
+            </center>
+          </div>
+
+          <div class="temp_box1" bis_skin_checked="1">
+            <div class="row sensors_value" bis_skin_checked="1">
+              <div class="col-4 sensors_value1" bis_skin_checked="1">
+                <span class="title">
+                  <% if (data && data.length > 0) { %> <%= data[0].pm25 %> <% }
+                  else { %> 0 <% } %></span
+                ><span style="font-size: 10px; margin-left: 3px">µg/m³</span
+                ><span
+                  ><i
+                    data-toggle="tooltip"
+                    title="PM2.5 are the particulates smaller than 2.5 micrometres in size and measured in micrograms per cubic meter.  They are almost 1/30th of the size of a human hair!"
+                    class="fa fa-info-circle fa-info-circle-info"
+                    aria-hidden="true"
+                  ></i
+                  ><span class="sr-only"
+                    >PM2.5 are the particulates smaller than 2.5 micrometres in
+                    size and measured in micrograms per cubic meter. They are
+                    almost 1/30th of the size of a human hair!</span
+                  ></span
+                >
+                <div class="subtitle" bis_skin_checked="1">PM 2.5</div>
+                <div class="d-flex" bis_skin_checked="1">
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background-color: #34a12b;
+                      width: 0.046511627906976744%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background: #34a12b;
+                      opacity: 0.4;
+                      width: 99.95348837209302%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                </div>
+              </div>
+              <div class="col-4 sensors_value1" bis_skin_checked="1">
+                <span class="title">
+                  <% if (data && data.length > 0) { %> <%= data[0].pm10 %> <% }
+                  else { %> 0 <% } %></span
+                ><span style="font-size: 10px; margin-left: 3px">µg/m³</span
+                ><span
+                  ><i
+                    data-toggle="tooltip"
+                    title="Particulate Matter (PM) is the suspended microscopic aerosol (solid or liquid) particles present in the air. PM10 are smaller than 10 micrometres in size and measured in micrograms per cubic meter."
+                    class="fa fa-info-circle fa-info-circle-info"
+                    aria-hidden="true"
+                  ></i
+                  ><span class="sr-only"
+                    >Particulate Matter (PM) is the suspended microscopic
+                    aerosol (solid or liquid) particles present in the air. PM10
+                    are smaller than 10 micrometres in size and measured in
+                    micrograms per cubic meter.</span
+                  ></span
+                >
+                <div class="subtitle" bis_skin_checked="1">PM 10</div>
+                <div class="d-flex" bis_skin_checked="1">
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background-color: #34a12b;
+                      width: 0.23255813953488372%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background: #34a12b;
+                      opacity: 0.4;
+                      width: 99.76744186046511%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                </div>
+              </div>
+              <div class="col-4 sensors_value1" bis_skin_checked="1">
+                <span class="title">
+                  <% if (data && data.length > 0) { %> <%= data[0].co2 %> <% }
+                  else { %> 0 <% } %></span
+                ><span style="font-size: 10px; margin-left: 3px">ppm</span
+                ><span
+                  ><i
+                    data-toggle="tooltip"
+                    title="CO2"
+                    class="fa fa-info-circle fa-info-circle-info"
+                    aria-hidden="true"
+                  ></i
+                  ><span class="sr-only">CO2</span></span
+                >
+                <div class="subtitle" bis_skin_checked="1">CO2</div>
+                <div class="d-flex" bis_skin_checked="1">
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background-color: #34a12b;
+                      width: 142.85714285714286%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                  <div
+                    class="sensor-dot"
+                    style="
+                      background: #34a12b;
+                      opacity: 0.4;
+                      width: -42.85714285714286%;
+                    "
+                    bis_skin_checked="1"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="s-bar-graph" bis_skin_checked="1">
+            <div style="width: 100%" bis_skin_checked="1">
+              <center
+                style="
+                  margin-top: 20px;
+                  color: white;
+                  font-size: 12px;
+                  padding-bottom: 10px;
+                "
+              >
+                AQI trend in last 24 Hrs.
+              </center>
+            </div>
+          </div>
+
+          <div class="last-update">
+            <p>Last updated at 1 hour ago</p>
+          </div>
+        </div>
+      </div>
+      <!-- data-box -->
+      <div class="data-box">
+        <div class="weather-forecast">
+          <div id="weather">
+            <input type="text" placeholder="Search..." class="input-search" />
+            <div class="content">
+              <h1 class="name">
+                <span class="city">Hanoi</span>
+                <span>,</span>
+                <span class="country">VN</span>
+              </h1>
+              <p class="time">15-5-2024</p>
+              <div class="temperature">
+                <span class="value">30</span>
+                <span><sup>o</sup>C</span>
+              </div>
+              <div class="short-desc">Cloud</div>
+              <div class="more-desc">
+                <div class="visibility">
+                  <i class="far fa-eye"></i>
+                  <span>1000</span>
+                </div>
+                <div class="wind">
+                  <i class="fas fa-wind"></i>
+                  <span></span>
+                </div>
+                <div class="cloud">
+                  <i class="fas fa-cloud-sun"></i>
+                  <span>80%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="data">
+          <h1 class="Air_Quality_Index2"> <span id="mycurrentLoc" class="myloc-locationname1"></span> Real-time Air Quality Index (AQI) <span style="color:red">Live</span></h1>
+          <p class="Air_Quality_Index3">Current air pollution level and weather condition of your location with the aggregate levels of major air pollutants in the ambient air.</p>
+          <div class="air-data">
+            <div class="PM25-box box">
+              <div class="main-data">
+                <p class="pm25">
+                  <% if (data && data.length > 0) { %> <%= data[0].pm25 %> <% }
+                  else { %> 0 <% } %> µg/m³
+                </p>
+                <p class="unit">PM 2.5</p>
+              </div>
+            </div>
+
+            <div class="PM10-box box">
+              <div class="main-data">
+                <p class="pm10">
+                  <% if (data && data.length > 0) { %> <%= data[0].pm10 %> <% }
+                  else { %> 0 <% } %> µg/m³
+                </p>
+                <p class="unit">PM 10</p>
+              </div>
+            </div>
+
+            <div class="CO2-box box">
+              <div class="main-data">
+                <p class="co2">
+                  <% if (data && data.length > 0) { %> <%= data[0].co2 %> <% }
+                  else { %> 0 <% } %> ppm
+                </p>
+                <p class="unit">Carbon dioxide(CO2)</p>
+              </div>
+            </div>
+
+            <div class="TEMP-box box">
+              <div class="main-data">
+                <p class="temp">
+                  <% if (data && data.length > 0) { %> <%= data[0].temp %> <% }
+                  else { %> 0 <% } %> oC
+                </p>
+                <p class="unit">Temperature</p>
+              </div>
+            </div>
+
+            <div class="HUMI-box box">
+              <div class="main-data">
+                <p class="humi">
+                  <% if (data && data.length > 0) { %> <%= data[0].humi %> <% }
+                  else { %> 0 <% } %> %
+                </p>
+                <p class="unit">Humility</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; margin-bottom: 50px">
+            <div class="d-flex" bis_skin_checked="1">
+              <p class="" style="height: 7px; width: 5%"></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #39a033"
+              ></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #d4ca2f"
+              ></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #e75834"
+              ></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #ea519f"
+              ></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #975aa0"
+              ></p>
+              <p
+                class=""
+                style="height: 7px; width: 15%; background-color: #bf2133"
+              ></p>
+            </div>
+
+            <div class="d-flex" bis_skin_checked="1">
+              <p class="" style="height: 5px; width: 5%"></p>
+              <p class="aqiSensortext">Good</p>
+              <p class="aqiSensortext">Moderate</p>
+              <p class="aqiSensortext">Unhealthy for Sensitive Groups</p>
+              <p class="aqiSensortext">Unhealthy</p>
+              <p class="aqiSensortext">Very unhealthy</p>
+              <p class="aqiSensortext">Hazardous</p>
+            </div>
+          </div>
+
+         
+          <div
+            class="row card-health-data-ranking"
+            style="height: 186px"
+            bis_skin_checked="1"
+          >
+            <div class="card-health-data" bis_skin_checked="1">
+              <div class="d-flex" bis_skin_checked="1">
+                <h2 class="card-live-ranking-heading" style="padding-top: 10px">
+                  Health Advice
+                </h2>
+                <img
+                  src="https://www.aqi.in/assets/images/live-rank-icon.png"
+                  style="margin-top: 12px; margin-left: 3px"
+                  alt=""
+                  class="card-rank-icon"
+                  title="Adopting certain health recommendations can save you from the harmful effects of air pollution. Steps as minor as wearing a face mask or staying indoor can be highly protective for a pro-active prevention.These are the health advices specific to current air quality that you should follow at your current location."
+                />
+              </div>
+              <div class="card-live-ranking-text" bis_skin_checked="1">
+                How to protect yourself from air pollution around
+                <span class="myloc-locationname1"
+                  >Minh Khai-Hai Ba Trung Ha Noi</span
+                >?
+              </div>
+            </div>
+
+            <div
+              class="d-flex"
+              id="health_advice_container"
+              bis_skin_checked="1"
+            >
+              <div class="Health-img-text" bis_skin_checked="1">
+                <img
+                  src="https://www.aqi.in/assets/images/wear-mask-icon-cross.png"
+                  alt="wear mask icon cross"
+                  width="40"
+                  height="40"
+                />
+                <p class="">Wear Mask</p>
+                <div class="" bis_skin_checked="1">Not Required</div>
+              </div>
+              <div class="Health-img-text" bis_skin_checked="1">
+                <img
+                  src="https://www.aqi.in/assets/images/Stay-Indoors-icon-cross.png"
+                  alt="stay indoors icon cross"
+                  width="40"
+                  height="40"
+                />
+                <p class="">Stay Indoor</p>
+                <div class="" bis_skin_checked="1">Not Required</div>
+              </div>
+              <div class="Health-img-text" bis_skin_checked="1">
+                <img
+                  src="https://www.aqi.in/assets/images/Shut-Openings-icon.png"
+                  alt="shut opening icon"
+                  width="40"
+                  height="40"
+                />
+                <p class="">Windows</p>
+                <div class="" bis_skin_checked="1">Keep Open</div>
+              </div>
+              <div class="Health-img-text" bis_skin_checked="1">
+                <img
+                  src="https://www.aqi.in/assets/images/Use-a-purifier-icon-cross.png"
+                  alt="use a purifier icon"
+                  width="40"
+                  height="40"
+                />
+                <p class="">Use Purifier</p>
+                <div class="" bis_skin_checked="1">Not Required</div>
+              </div>
+              <div class="Health-img-text" bis_skin_checked="1">
+                <img
+                  src="https://www.aqi.in/assets/images/family-icon.png"
+                  alt="Family Icon"
+                  width="40"
+                  height="40"
+                />
+                <p class="">Family</p>
+                <div class="" bis_skin_checked="1">Allow Outdoor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- chart -->
+      <div class="graph_city" bis_skin_checked="1">
+        <div style="padding: 0px; background-color: white" bis_skin_checked="1">
+          <div
+            class="d-flex Air_pollution_heading graph_container"
+            bis_skin_checked="1"
+          >
+            <h2
+              class="text-comparison"
+              style="
+                font-size: 18px;
+                font-weight: 600;
+                padding: 10px 0px 0px 15px;
+              "
+            >
+              
+              <span id="mycurrentLoc" class="myloc-locationname1"
+                ></span
+              >
+               <span class="myloc-cityName"></span>
+            </h2>
+          </div>
+          <!-- <div
+            class="col-12 col-sm-12 col-md-6 d-flex select_components"
+            bis_skin_checked="1"
+          >
+            <div
+              id="mysensorselect"
+              onchange="if (!window.__cfRLUnblockHandlers) return false; ChartData1()"
+              bis_skin_checked="1"
+            >
+              <div bis_skin_checked="1">
+                <select style="display: none">
+                  <option value="pm25">PM2.5 (µg/m³)</option>
+                  <option value="pm10">PM10 (µg/m³)</option>
+                  <option value="so2">SO2 (ppb)</option>
+                  <option value="no2">NO2 (ppb)</option>
+                  <option value="o3">O3 (ppb)</option>
+                  <option value="co">CO (ppb)</option>
+                </select>
+                <div class="nice-select" tabindex="0" bis_skin_checked="1">
+                  <span class="current">PM10 (µg/m³)</span>
+                  <ul class="list">
+                    <li data-value="pm25" class="option">PM2.5 (µg/m³)</li>
+                    <li data-value="pm10" class="option selected focus">
+                      PM10 (µg/m³)
+                    </li>
+                    <li data-value="so2" class="option">SO2 (ppb)</li>
+                    <li data-value="no2" class="option">NO2 (ppb)</li>
+                    <li data-value="o3" class="option">O3 (ppb)</li>
+                    <li data-value="co" class="option">CO (ppb)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              id="mysensortime"
+              onchange="if (!window.__cfRLUnblockHandlers) return false; ChartData1()"
+              bis_skin_checked="1"
+            >
+              <div bis_skin_checked="1">
+                <select style="display: none">
+                  <option value="1">24 hours</option>
+                  <option value="2">Last 7 days</option>
+                  <option value="3">Last month</option>
+                </select>
+                <div class="nice-select" tabindex="0" bis_skin_checked="1">
+                  <span class="current">Last 7 days</span>
+                  <ul class="list">
+                    <li data-value="1" class="option">24 hours</li>
+                    <li data-value="2" class="option selected focus">
+                      Last 7 days
+                    </li>
+                    <li data-value="3" class="option">Last month</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="history_comp_graph" bis_skin_checked="1">
+            <div
+              class="chartjs-size-monitor"
+              bis_skin_checked="1"
+              style="
+                position: absolute;
+                inset: 0px;
+                overflow: hidden;
+                pointer-events: none;
+                visibility: hidden;
+                z-index: -1;
+              "
+            >
+              <div
+                class="chartjs-size-monitor-expand"
+                style="
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  overflow: hidden;
+                  pointer-events: none;
+                  visibility: hidden;
+                  z-index: -1;
+                "
+                bis_skin_checked="1"
+              >
+                <div
+                  style="
+                    position: absolute;
+                    width: 1000000px;
+                    height: 1000000px;
+                    left: 0;
+                    top: 0;
+                  "
+                  bis_skin_checked="1"
+                ></div>
+              </div>
+              <div
+                class="chartjs-size-monitor-shrink"
+                style="
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  overflow: hidden;
+                  pointer-events: none;
+                  visibility: hidden;
+                  z-index: -1;
+                "
+                bis_skin_checked="1"
+              >
+                <div
+                  style="
+                    position: absolute;
+                    width: 200%;
+                    height: 200%;
+                    left: 0;
+                    top: 0;
+                  "
+                  bis_skin_checked="1"
+                ></div>
+              </div>
+            </div>
+            <canvas
+              id="history_graph"
+              style="display: block; height: 163px; width: 1082px"
+              class="chartjs-render-monitor"
+              width="1352"
+              height="203"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+      <!-- Air Quality Index Scale -->
+
+      <div class="col-12" bis_skin_checked="1">
+        <div class="Parameters_card" bis_skin_checked="1">
+          <br />
+          <div class="col-12" style="margin-bottom: 11px" bis_skin_checked="1">
+            <center>
+              <h3 class="Parameters_heading">Air Quality Index Scale</h3>
+              <p class="Parameters_text">
+                Know about the category of air quality index (AQI) your ambient
+                air falls in and what it implies.
+              </p>
+            </center>
+          </div>
+          <div
+            class="row"
+            style="padding-left: 15px; padding-right: 15px"
+            bis_skin_checked="1"
+          >
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #39a033"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_4.webp"
+                  style="width: 38px; height: 67px"
+                  width="38"
+                  height="67"
+                  alt="good cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_4.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Good</p>
+                  <p class="Parameters_card_value_text1">0-50</p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  The air is fresh and free from toxins. People are not exposed
+                  to any health risk.
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #d4ca2f"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_3.webp"
+                  style="width: 38px; height: 67px"
+                  width="38"
+                  height="67"
+                  alt="moderate cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_3.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Moderate</p>
+                  <p class="Parameters_card_value_text1">51-100</p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  Acceptable air quality for healthy adults but mild threat to
+                  sensitive individuals.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="row"
+            style="padding-left: 15px; padding-right: 15px"
+            bis_skin_checked="1"
+          >
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #e75834"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_2.webp"
+                  style="width: 38px; height: 67px"
+                  width="38"
+                  height="67"
+                  alt="poor cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_2.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Poor</p>
+                  <p class="Parameters_card_value_text1">101-200</p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  Inhaling such air can cause slight discomfort and difficulty
+                  in breathing.
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #ea519f"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_5.webp"
+                  style="width: 38px; height: 67px"
+                  width="38"
+                  height="67"
+                  alt="unhealthy cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_5.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Unhealthy</p>
+                  <p class="Parameters_card_value_text1">201-300</p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  This could be typically problematic for children, pregnant
+                  women and the elderly.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="row"
+            style="padding-left: 15px; padding-right: 15px"
+            bis_skin_checked="1"
+          >
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #975aa0"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_1.webp"
+                  style="width: 38px; height: 67px"
+                  width="38"
+                  height="67"
+                  alt="severe cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_1.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Severe</p>
+                  <p class="Parameters_card_value_text1">301-400</p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  Exposure to air can cause chronic morbidities or even organ
+                  impairment.
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-6 col-sm-6 col-md-6 aqi_scale card_mobile_padding"
+              bis_skin_checked="1"
+            >
+              <div
+                class="Parameters_card_section"
+                style="border-left: 25px solid #bf2133"
+                bis_skin_checked="1"
+              >
+                <img
+                  class=""
+                  style="
+                    margin-left: -10px;
+                    margin-top: 10px;
+                    width: auto;
+                    height: 50px;
+                  "
+                  width="100"
+                  height="50"
+                  data-src="https://www.aqi.in/assets/images/cartton_shape_6.webp"
+                  alt="hazardous cartoon image"
+                  src="https://www.aqi.in/assets/images/cartton_shape_6.webp"
+                />
+                <div class="Parameters_card_value" bis_skin_checked="1">
+                  <p class="Parameters_card_value_text">Hazardous</p>
+                  <p class="Parameters_card_value_text1">401-500<sup>+</sup></p>
+                </div>
+                <div class="Parameters_card_value_text2" bis_skin_checked="1">
+                  Beware! Your life is in danger. Prolonged exposure can lead to
+                  premature death.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ======================AQI calculator====================== -->
+      <div class="aqi-cal">
+        <div class="main-content">
+          <div class="band-title-holder" bis_skin_checked="1">
+            <h1 id="" class="band-title-light">AQI Calculator</h1>
+         </div>
+  
+         <div class="band-card-row">
+          <div class="basic-content">
+            <!-- <div class="panel-default">
+              <div class="panel-heading">AQI Calculators</div>
+              <div class="panel-body">
+                <ul>
+                  <li><span style="margin-bottom: 10px;margin-top: 5px;" class="AqiToConcentration">AQI to Concentration </span></li>
+                  <li><span  class="ConcentrationToAqi clicked">Concentration to AQI</span></li>
+                </ul>
+              </div>
+            </div> -->
+            <h4 class="media-heading">Concentration to AQI Calculator</h4>
+            <p>DIRECTIONS: 
+              <em>
+                Select a pollutant, then enter the Concentration value. Click on “Calculate” to see the results.
+              </em>
+            </p>
+  
+            <form>
+              <div class="form-group">
+                <em>
+                  <label for="selectapollutnat">Select a Pollutant</label>
+                  <select class="form-control" id="selectapollutnat" name="pollutant" style="text-align: left;">
+                    <option selected="selected" value="0"></option>
+                    <option value="1">PM2.5 - Particulate &lt;2.5 microns (24hr avg)</option>
+                    <option value="2">PM10 - Particulate &lt;10 microns (24hr avg)</option>
+                    <!-- <option value="3">CO - Carbon Monoxide (8hr avg)</option>
+                    <option value="4">SO2 - Sulfur Dioxide (1hr avg)</option>
+                    <option value="5">SO2 - Sulfur Dioxide (24hr avg)</option>
+                    <option value="6">O3 - Ozone (8hr avg)</option>
+                    <option value="7">O3 - Ozone (1hr avg)</option>
+                    <option value="8">NO2 - Nitrogen Dioxide (1hr avg)</option>  -->
+                  </select>
+                </em>
+              </div>
+  
+              <div class="form-group" bis_skin_checked="1"><label for="unit">Units</label> <input class="form-control" id="unit" name="txtunit" type="text" style="text-align: center;"></div>
+  
+              <div class="form-group" bis_skin_checked="1">
+                <em>
+                  <label for="entertheaqi">Enter the Concentration</label> 
+                  <input class="form-control" id="entertheconcentration" name="inputbox" type="text" style="text-align: center; background-color: white;">
+                </em>
+              </div>
+            </form>
+  
+            <div class="btn-group" bis_skin_checked="1">
+              <button class="btn btn-primary calculate" name="Calculate" onclick="CalculateAqi()" type="button" value="Calculate">
+                Calculate
+              </button>
+              <button class="btn btn-primary reset" name="reset" style="margin-left: -2px;" onclick="" type="reset" value="Reset">
+                Reset
+              </button>
+            </div>
+  
+  
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="concentration">
+                  AQI
+                </label> 
+                <input class="form-control" id="aqi" name="outputbox1" type="text">
+              </em>
+            </div>
+  
+  
+  
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="aqicategory">AQI Category </label>
+                 <input class="form-control" id="aqicategory" name="outputbox2" type="text" style="color: #fff;">
+                </em>
+            </div>
+  
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="SensitiveGroups">Sensitive Groups</label>
+                <textarea class="form-control" id="SensitiveGroups" name="TextSensitive" rows="3">
+                </textarea>
+              </em>
+            </div>
+  
+  
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="HealthEffectsStatements">Health Effects Statements</label>
+                <textarea class="form-control" id="HealthEffectsStatements" name="HealthEffects" rows="3"></textarea>
+              </em>
+            </div>
+  
+  
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="CautionaryStatements">Cautionary Statements</label>
+                <textarea class="form-control" id="CautionaryStatements" name="Cautionary" rows="3"></textarea>
+              </em>
+            </div>
+  
+  
+          </div>
+         </div>
+  
+        
+        </div>
+  
+      </div>
+      
+
+
+    </main>
+
+    <!-- footer -->
+    
+    <div class="copyright">
+      <p>Copyright ©2024 All rights reserved</p>
+    </div>
+
+
+
+    <script>
+      const input = document.querySelector(".input-search");
+
+      function changeWeatherUI(weather) {
+        const city = document.querySelector(".name .city");
+        const country = document.querySelector(".name .country");
+        const time = document.querySelector(".time");
+        const temperature = document.querySelector(".temperature .value");
+        const shortDesc = document.querySelector(".short-desc");
+
+        const visibility = document.querySelector(".visibility span");
+        const wind = document.querySelector(".wind span");
+        const cloud = document.querySelector(".cloud span");
+
+        city.innerHTML = weather.name;
+        country.innerHTML = weather.sys.country;
+        time.innerHTML = new Date().toLocaleString();
+        shortDesc.innerHTML = weather.weather[0].main;
+
+        const temp = Math.round(weather.main.temp);
+        temperature.innerHTML = temp;
+
+        temp >= 18
+          ? (document.body.className = "hot")
+          : (document.body.className = "cold");
+
+        visibility.innerHTML = weather.visibility + " (m)";
+        wind.innerHTML = weather.wind.speed + " (m/s)";
+        cloud.innerHTML = weather.clouds.all + " (%)";
+      }
+
+      input.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+          getWeather(e.target.value);
+        }
+      });
+
+      async function getWeather(input) {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=d78fd1588e1b7c0c2813576ba183a667`;
+
+        const res = await fetch(url);
+        const weather = await res.json();
+        // console.log(weather);
+        changeWeatherUI(weather);
+      }
+
+      getWeather("ha noi");
+
+      async function getApi() {
+        const res = await fetch("/get-data-today");
+        const data = await res.json();
+
+        console.log(data.data);
+      }
+      //  getApi()
+
+      const pm25 = document.querySelector(".air-data .PM25-box .pm25");
+      const pm10 = document.querySelector(".air-data .PM10-box .pm10");
+      const co2 = document.querySelector(".air-data .CO2-box .co2");
+      const aqi = document.querySelector(".thermometer .progressbar-text");
+      const aqi_index = document.querySelector(".te_subtitle");
+
+      function classify() {
+        const PM25 = parseFloat(pm25.innerText.replace(" µg/m³", ""));
+        const PM10 = parseFloat(pm10.innerText.replace(" µg/m³", ""));
+        const CO2 = parseFloat(co2.innerText.replace(" ppm", ""));
+        const AQI = parseFloat(aqi.innerText);
+        
+        if (AQI <= 50) {
+          aqi_index.classList.add("good");
+        } else if (AQI > 50 && AQI <= 100) {
+          aqi_index.classList.add("moderate");
+        } else if (AQI > 100 && AQI <= 150) {
+          aqi_index.classList.add("unhealthy-for-sensitive-groups");
+        } else if (AQI > 150 && AQI <= 200) {
+          aqi_index.classList.add("unhealthy");
+        } else if (AQI > 200 && AQI <= 300) {
+          aqi_index.classList.add("very-unhealthy");
+        } else if (AQI > 300) {
+          aqi_index.classList.add("hazardous");
+        }
+        if (PM25 === 0) {
+          pm25.parentElement.parentElement.classList.add("no-classify");
+        } else if (PM25 > 0 && PM25 < 10) {
+          pm25.parentElement.parentElement.classList.add("good");
+        } else if (PM25 >= 10 && PM25 < 20) {
+          pm25.parentElement.parentElement.classList.add("moderate");
+        } else if (PM25 >= 20 && PM25 < 30) {
+          pm25.parentElement.parentElement.classList.add(
+            "unhealthy-for-sensitive-groups"
+          );
+        } else if (PM25 >= 30 && PM25 < 40) {
+          pm25.parentElement.parentElement.classList.add("unhealthy");
+        } else if (PM25 >= 40 && PM25 < 50) {
+          pm25.parentElement.parentElement.classList.add("very-unhealthy");
+        } else if (PM25 >= 50) {
+          pm25.parentElement.parentElement.classList.add("hazardous");
+        }
+
+        if (PM10 === 0) {
+          pm10.parentElement.parentElement.classList.add("no-classify");
+        } else if (PM10 > 0 && PM10 < 10) {
+          pm10.parentElement.parentElement.classList.add("good");
+        } else if (PM10 >= 10 && PM10 < 20) {
+          pm10.parentElement.parentElement.classList.add("moderate");
+        } else if (PM10 >= 20 && PM10 < 30) {
+          pm10.parentElement.parentElement.classList.add(
+            "unhealthy-for-sensitive-groups"
+          );
+        } else if (PM10 >= 30 && PM10 < 40) {
+          pm10.parentElement.parentElement.classList.add("unhealthy");
+        } else if (PM10 >= 40 && PM10 < 50) {
+          pm10.parentElement.parentElement.classList.add("very-unhealthy");
+        } else if (PM10 >= 50) {
+          pm10.parentElement.parentElement.classList.add("hazardous");
+        }
+
+        if (CO2 === 0) {
+          co2.parentElement.parentElement.classList.add("no-classify");
+        } else if (CO2 > 0 && CO2 < 701) {
+          co2.parentElement.parentElement.classList.add("good");
+        } else if (CO2 >= 701 && CO2 < 1001) {
+          co2.parentElement.parentElement.classList.add("moderate");
+        } else if (CO2 >= 1001 && CO2 < 1501) {
+          co2.parentElement.parentElement.classList.add(
+            "unhealthy-for-sensitive-groups"
+          );
+        } else if (CO2 >= 1501 && CO2 < 2501) {
+          co2.parentElement.parentElement.classList.add("unhealthy");
+        } else if (CO2 >= 2501 && CO2 < 5001) {
+          co2.parentElement.parentElement.classList.add("very-unhealthy");
+        } else if (CO2 >= 5001) {
+          co2.parentElement.parentElement.classList.add("hazardous");
+        }
+      }
+
+      classify();
+      // ========================================== handle search================================================
+      const products = document.querySelector(".products");
+      const filter = document.getElementById("search-input");
+      const listItems = [];
+
+      async function getData() {
+        // const res = await fetch("https://fakestoreapi.com/products");
+        const res = await fetch("/getLocations");
+        const results = await res.json();
+        // console.log(results);
+        products.innerHTML = "";
+
+        results.data.forEach((product) => {
+          const div = document.createElement("div");
+          div.setAttribute("class", "product");
+          div.setAttribute("id-location", `${product.id}`);
+          listItems.push(div);
+          // console.log(div);
+          div.innerHTML = `
+			<div class="product-detail">
+				<h4>${product.name}</h4>
+			</div>
+        `;
+          products.appendChild(div);
+        });
+      }
+
+      function filterData(search) {
+        listItems.forEach((item) => {
+          if (
+            item.innerText.toLowerCase().includes(search.toLowerCase().trim())
+          ) {
+            item.classList.remove("hide");
+          } else {
+            item.classList.add("hide");
+          }
+        });
+      }
+
+      getData();
+
+      filter.addEventListener("input", (e) => {
+        filterData(e.target.value);
+      });
+      filter.addEventListener("click", (e) => {
+        products.classList.remove("hide");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !filter.contains(event.target) &&
+          !products.contains(event.target)
+        ) {
+          products.classList.add("hide");
+        }
+      });
+
+      // ============================== HANDLE GRAPH===========================================
+
+      async function CreateChart() {
+        const res = await fetch("/get-data-today");
+        const data = await res.json();
+        const date = new Date(data.data[1].updatedAt);
+
+        // Lấy giá trị giờ
+        const hours = date.getUTCHours();
+
+        console.log(hours); // Kết quả: 17
+        console.log(data);
+        // Tạo nhãn trục x là 24 giờ
+        const xValues = Array.from(
+          { length: data.data.length },
+          (_, i) => `${i}:00`
+        );
+
+        // Dữ liệu 24 phần tử (ví dụ)
+        const yValues = Array.from(
+          { length: data.data.length },
+          (_, i) => data.data[i].aqi
+        );
+
+        // Tạo biểu đồ
+
+        new Chart("history_graph", {
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              xAxes: [
+                {
+                  ticks: {
+                    autoSkip: false, // Hiển thị tất cả các nhãn
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  ticks: { min: 0 }, // Điều chỉnh giá trị nhỏ nhất trên trục y nếu cần
+                },
+              ],
+            },
+          },
+        });
+      }
+      CreateChart();
+
+      // ================================Handle Gauge============================================
+      function updateAQI(aqi) {
+      const aqiPath = document.getElementById('aqiPath');
+      const maxAQI = 500;
+      const minAQI = 0;
+      const maxOffset = 289.067; // Maximum stroke-dashoffset (for AQI = 0)
+      const minOffset = 0;       // Minimum stroke-dashoffset (for AQI = 500)
+
+      // Ensure the AQI is within bounds
+      aqi = Math.max(minAQI, Math.min(maxAQI, aqi));
+
+      // Calculate the new stroke-dashoffset
+      const offset = maxOffset - (aqi / maxAQI) * maxOffset;
+      aqiPath.style.strokeDashoffset = offset;
+
+      // Optionally change the color based on AQI value
+      if (aqi <= 50) {
+        aqiPath.setAttribute('stroke', 'rgb(52,161,43)'); // Green
+      } else if (aqi <= 100) {
+        aqiPath.setAttribute('stroke', 'rgb(255,255,0)'); // Yellow
+      } else if (aqi <= 150) {
+        aqiPath.setAttribute('stroke', 'rgb(255,165,0)'); // Orange
+      } else if (aqi <= 200) {
+        aqiPath.setAttribute('stroke', 'rgb(255,0,0)');   // Red
+      } else if (aqi <= 300) {
+        aqiPath.setAttribute('stroke', 'rgb(153,50,204)');// Purple
+      } else {
+        aqiPath.setAttribute('stroke', 'rgb(128,0,0)');   // Maroon
+      }
+    }
+
+    // Update the AQI gauge with a specific value, e.g., AQI = 200
+    updateAQI(parseFloat(aqi.innerText));
+
+
+      // =================================Handle Calculate=====================
+      const btn_cal=document.querySelector(".aqi-cal .calculate");
+        const btn_reset=document.querySelector(".aqi-cal .reset");
+        const select_pollutant=document.getElementById("selectapollutnat");
+        const unit=document.getElementById("unit");
+        const input_value=document.getElementById("entertheconcentration");
+        const aqi_value=document.getElementById("aqi");
+        const aqi_category=document.getElementById("aqicategory");
+        const sensitivegroup_value=document.getElementById("SensitiveGroups");
+        const effect_value=document.getElementById("HealthEffectsStatements");
+        const caution_value=document.getElementById("CautionaryStatements");
+
+        let selectedValue=1;
+        let AQI=0;
+
+        CalculateAqi=()=>{
+          if(selectedValue==1){
+            if(input_value.value<=25){
+                AQI=2*input_value.value;
+                aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=26)&&(input_value.value<=50)){
+              AQI=2*(input_value.value-25)+50;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=51)&&(input_value.value<=80)){
+              AQI=(5/3)*(input_value.value-50)+100;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=81)&&(input_value.value<=150)){
+              AQI=(5/7)*(input_value.value-80)+150;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=151)&&(input_value.value<=250)){
+              AQI=(input_value.value-150)+200;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=251)&&(input_value.value<=350)){
+              AQI=(input_value.value-250)+300;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=351)&&(input_value.value<=400)){
+              AQI=(2/3)*(input_value.value-350)+300;
+              aqi_value.value= Math.round(AQI);
+            }
+            else{
+              AQI=500;
+              aqi_value.value= AQI;
+            } 
+          }
+
+          if(selectedValue==2){
+            if(input_value.value<=50){
+                AQI=input_value.value;
+                aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=51)&&(input_value.value<=150)){
+              AQI=(1/2)*(input_value.value-50)+50;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=151)&&(input_value.value<=250)){
+              AQI=(1/2)*(input_value.value-150)+100;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=251)&&(input_value.value<=350)){
+              AQI=(1/2)*(input_value.value-250)+150;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=351)&&(input_value.value<=420)){
+              AQI=(10/7)*(input_value.value-350)+200;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=421)&&(input_value.value<=500)){
+              AQI=(5/4)*(input_value.value-420)+300;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=501)&&(input_value.value<600)){
+              AQI=(input_value.value-500)+400;
+              aqi_value.value= Math.round(AQI);
+            }
+            else{
+              AQI=500;
+              aqi_value.value= AQI;
+            } 
+          }
+          console.log(AQI);
+          Classify_pm(AQI);
+        }
+
+        Classify_pm=(aqi)=>{
+          if(aqi<51){
+            aqi_category.style.backgroundColor = "rgb(0,228,0)";
+            aqi_category.value="Good";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="None";
+            caution_value.value="None";
+          }
+          if((aqi>=51)&&(aqi<=100)){
+            aqi_category.style.backgroundColor = "rgb(255,255,0)";
+            aqi_category.value="Moderate";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Unusually sensitive people should consider reducing prolonged or heavy exertion.";
+            caution_value.value="Unusually sensitive people should consider reducing prolonged or heavy exertion.";
+          }
+          if((aqi>=101)&&(aqi<151)){
+            aqi_category.style.backgroundColor = "rgb(255,126,0)";
+            aqi_category.value="Unhealthy for Sensitive Groups";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Increasing likelihood of respiratory symptoms in sensitive individuals, aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should limit prolonged exertion.";
+          }
+          if((aqi>=151)&&(aqi<201)){
+            aqi_category.style.backgroundColor = "rgb(255,0,0)";
+            aqi_category.value="Unhealthy";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Increased aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; increased respiratory effects in general population.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should avoid prolonged exertion; everyone else should limit prolonged exertion.";
+          }
+          if((aqi>=201)&&(aqi<301)){
+            aqi_category.style.backgroundColor = "rgb(143,63,151)";
+            aqi_category.value="Very Unhealthy";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Significant aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; significant increase in respiratory effects in general population.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should avoid any outdoor activity; everyone else should avoid prolonged exertion.";
+          }
+          if((aqi>=301)){
+            aqi_category.style.backgroundColor = "rgb(126,0,35)";
+            aqi_category.value="Hazardous";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Serious aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; serious risk of respiratory effects in general population.";
+            caution_value.value="Everyone should avoid any outdoor exertion; people with respiratory or heart disease, the elderly and children should remain indoors.";
+          }
+        }
+
+        document.getElementById('selectapollutnat').addEventListener('change', function() {
+        selectedValue = this.value;
+        if(selectedValue==1||selectedValue==2){
+          unit.value="ug/m3";
+        }
+        else if(selectedValue==3){
+          unit.value="ppm";
+        }
+        else (unit.value="ppb");
+       
+        });
+
+        btn_reset.addEventListener("click",(e)=>{
+          console.log("hello");
+          input_value.value="";
+          aqi_category.style.removeProperty('background-color');
+          aqi_category.value="";
+          aqi_value.value="";
+          sensitivegroup_value.value="";
+          effect_value.value="";
+          caution_value.value="";
+        })
+        
+    </script>
+  </body>
+</html>

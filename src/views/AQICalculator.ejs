@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/calStyle.css" />
+    <link rel="stylesheet" href="/css/header_footerStyle.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+</head>
+<body>
+    <header class="header fixed">
+        <div class="main-content">
+          <div class="body">
+            <!-- logo -->
+            <img src="assets/icon/aqi-logo.svg" alt="Lesson." class="logo" />
+  
+            <!-- search -->
+            <div class="search-box">
+              <div class="search-box-container">
+                <div class="search-icon">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <input
+                  type="text"
+                  class="search-input"
+                  id="search-input"
+                  placeholder="Search Location City or Area"
+                />
+                <div class="image-gps">
+                  <img
+                    src="https://www.aqi.in/assets/images/gps.svg"
+                    alt="Gps image"
+                    width="20"
+                    height="20"
+                    class="gps_image"
+                  />
+                </div>
+              </div>
+  
+              <div class="products hide">
+                
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </header>
+      <!-- main -->
+
+    <div class="aqi-cal">
+      <div class="main-content">
+        <div class="band-title-holder" bis_skin_checked="1">
+          <h1 id="" class="band-title-light">AQI Calculator</h1>
+       </div>
+
+       <div class="band-card-row">
+        <div class="basic-content">
+          <!-- <div class="panel-default">
+            <div class="panel-heading">AQI Calculators</div>
+            <div class="panel-body">
+              <ul>
+                <li><span style="margin-bottom: 10px;margin-top: 5px;" class="AqiToConcentration">AQI to Concentration </span></li>
+                <li><span  class="ConcentrationToAqi clicked">Concentration to AQI</span></li>
+              </ul>
+            </div>
+          </div> -->
+          <h4 class="media-heading">Concentration to AQI Calculator</h4>
+          <p>DIRECTIONS: 
+            <em>
+              Select a pollutant, then enter the Concentration value. Click on “Calculate” to see the results.
+            </em>
+          </p>
+
+          <form>
+            <div class="form-group">
+              <em>
+                <label for="selectapollutnat">Select a Pollutant</label>
+                <select class="form-control" id="selectapollutnat" name="pollutant" style="text-align: left;">
+                  <option selected="selected" value="0"></option>
+                  <option value="1">PM2.5 - Particulate &lt;2.5 microns (24hr avg)</option>
+                  <option value="2">PM10 - Particulate &lt;10 microns (24hr avg)</option>
+                  <option value="3">CO - Carbon Monoxide (8hr avg)</option>
+                  <option value="4">SO2 - Sulfur Dioxide (1hr avg)</option>
+                  <option value="5">SO2 - Sulfur Dioxide (24hr avg)</option>
+                  <option value="6">O3 - Ozone (8hr avg)</option>
+                  <option value="7">O3 - Ozone (1hr avg)</option>
+                  <option value="8">NO2 - Nitrogen Dioxide (1hr avg)</option> 
+                </select>
+              </em>
+            </div>
+
+            <div class="form-group" bis_skin_checked="1"><label for="unit">Units</label> <input class="form-control" id="unit" name="txtunit" type="text" style="text-align: center;"></div>
+
+            <div class="form-group" bis_skin_checked="1">
+              <em>
+                <label for="entertheaqi">Enter the Concentration</label> 
+                <input class="form-control" id="entertheconcentration" name="inputbox" type="text" style="text-align: center; background-color: white;">
+              </em>
+            </div>
+          </form>
+
+          <div class="btn-group" bis_skin_checked="1">
+            <button class="btn btn-primary calculate" name="Calculate" onclick="CalculateAqi()" type="button" value="Calculate">
+              Calculate
+            </button>
+            <button class="btn btn-primary reset" name="reset" style="margin-left: -2px;" onclick="" type="reset" value="Reset">
+              Reset
+            </button>
+          </div>
+
+
+          <div class="form-group" bis_skin_checked="1">
+            <em>
+              <label for="concentration">
+                AQI
+              </label> 
+              <input class="form-control" id="aqi" name="outputbox1" type="text">
+            </em>
+          </div>
+
+
+
+          <div class="form-group" bis_skin_checked="1">
+            <em>
+              <label for="aqicategory">AQI Category </label>
+               <input class="form-control" id="aqicategory" name="outputbox2" type="text">
+              </em>
+          </div>
+
+          <div class="form-group" bis_skin_checked="1">
+            <em>
+              <label for="SensitiveGroups">Sensitive Groups</label>
+              <textarea class="form-control" id="SensitiveGroups" name="TextSensitive" rows="3">
+              </textarea>
+            </em>
+          </div>
+
+
+          <div class="form-group" bis_skin_checked="1">
+            <em>
+              <label for="HealthEffectsStatements">Health Effects Statements</label>
+              <textarea class="form-control" id="HealthEffectsStatements" name="HealthEffects" rows="3"></textarea>
+            </em>
+          </div>
+
+
+          <div class="form-group" bis_skin_checked="1">
+            <em>
+              <label for="CautionaryStatements">Cautionary Statements</label>
+              <textarea class="form-control" id="CautionaryStatements" name="Cautionary" rows="3"></textarea>
+            </em>
+          </div>
+
+
+        </div>
+       </div>
+
+      
+      </div>
+
+    </div>
+    
+      
+     <!-- footer -->
+     <!-- <footer class="footer">
+        <div class="main-content">
+          <div class="row">
+            <!-- column 1 -->
+            <!-- <div class="column">
+              <img src="assets/icon/aqi-logo.svg" alt="Lesson." class="logo" />
+              <p class="desc">
+                Need to help for your dream Career? trust us. With Lesson, study
+                becomes a lot easier with us.
+              </p>
+              <div class="socials">
+                <a href="">
+                  <img
+                    src="./assets/icon/twitter.svg"
+                    alt="twitter"
+                    class="icon"
+                  />
+                </a>
+                <a href="">
+                  <img src="./assets/icon/fb.svg" alt="facebook" class="icon" />
+                </a>
+                <a href="">
+                  <img
+                    src="./assets/icon/linkedin.svg"
+                    alt="linkedin"
+                    class="icon"
+                  />
+                </a>
+                <a href="">
+                  <img
+                    src="./assets/icon/instagram.svg"
+                    alt="instagram"
+                    class="icon"
+                  />
+                </a>
+              </div>
+            </div> -->
+            <!-- column 2 -->
+            <!-- <div class="column">
+              <h3 class="title">Company</h3>
+              <ul class="list">
+                <li>
+                  <a href="#!">About Us</a>
+                </li>
+                <li>
+                  <a href="#!">Features</a>
+                </li>
+                <li>
+                  <a href="#!">Our Pricing</a>
+                </li>
+                <li>
+                  <a href="#!">Latest News</a>
+                </li>
+              </ul>
+            </div> -->
+            <!-- column 3 -->
+            <!-- <div class="column">
+              <h3 class="title">Support</h3>
+              <ul class="list">
+                <li>
+                  <a href="#!">FAQ’s</a>
+                </li>
+                <li>
+                  <a href="#!">Terms & Conditions</a>
+                </li>
+                <li>
+                  <a href="#!">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#!">Contact Us</a>
+                </li>
+              </ul>
+            </div> -->
+            <!-- column 4 -->
+            <!-- <div class="column">
+              <h3 class="title">Address</h3>
+              <ul class="list">
+                <li>
+                  <a href="#!"
+                    ><strong>Location:</strong> 27 Division St, New York, NY
+                    10002, USA</a
+                  >
+                </li>
+                <li>
+                  <a href="#!"><strong>Email:</strong> email@gmail.com</a>
+                </li>
+                <li>
+                  <a href="#!"><strong>Phone:</strong> + 000 1234 567 890</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer> --> -->
+      <div class="copyright">
+        <p>Copyright ©2024 All rights reserved</p>
+      </div>  
+
+      <!-- =====================================script============================= -->
+      <script>
+        // const aqi_to_con=document.querySelector("main .ConcentrationToAqi");
+        // const con_to_aqi=document.querySelector(".aqi-cal .AqiToConcentration");
+        const btn_cal=document.querySelector(".aqi-cal .calculate");
+        const btn_reset=document.querySelector(".aqi-cal .reset");
+        const select_pollutant=document.getElementById("selectapollutnat");
+        const unit=document.getElementById("unit");
+        const input_value=document.getElementById("entertheconcentration");
+        const aqi_value=document.getElementById("aqi");
+        const aqi_category=document.getElementById("aqicategory");
+        const sensitivegroup_value=document.getElementById("SensitiveGroups");
+        const effect_value=document.getElementById("HealthEffectsStatements");
+        const caution_value=document.getElementById("CautionaryStatements");
+
+        let selectedValue=1;
+        let AQI=0;
+
+        // aqi_to_con.addEventListener("click",(e)=>{
+        //   aqi_to_con.classList.add("clicked");
+        //   con_to_aqi.classList.remove("clicked");
+        // })
+        // con_to_aqi.addEventListener("click",(e)=>{
+        //   con_to_aqi.classList.add("clicked");
+        //   aqi_to_con.classList.remove("clicked");
+        // })
+
+        CalculateAqi=()=>{
+          if(selectedValue==1){
+            if(input_value.value<=25){
+                AQI=2*input_value.value;
+                aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=26)&&(input_value.value<=50)){
+              AQI=2*(input_value.value-25)+50;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=51)&&(input_value.value<=80)){
+              AQI=(5/3)*(input_value.value-50)+100;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=81)&&(input_value.value<=150)){
+              AQI=(5/7)*(input_value.value-80)+150;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=151)&&(input_value.value<=250)){
+              AQI=(input_value.value-150)+200;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=251)&&(input_value.value<=350)){
+              AQI=(input_value.value-250)+300;
+              aqi_value.value=AQI;
+            }
+            else if((input_value.value>=351)&&(input_value.value<=400)){
+              AQI=(2/3)*(input_value.value-350)+300;
+              aqi_value.value= Math.round(AQI);
+            }
+            else{
+              AQI=500;
+              aqi_value.value= AQI;
+            } 
+          }
+
+          if(selectedValue==2){
+            if(input_value.value<=50){
+                AQI=input_value.value;
+                aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=51)&&(input_value.value<=150)){
+              AQI=(1/2)*(input_value.value-50)+50;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=151)&&(input_value.value<=250)){
+              AQI=(1/2)*(input_value.value-150)+100;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=251)&&(input_value.value<=350)){
+              AQI=(1/2)*(input_value.value-250)+150;
+              aqi_value.value= Math.round(AQI);
+            }
+            else if((input_value.value>=351)&&(input_value.value<=420)){
+              AQI=(10/7)*(input_value.value-350)+200;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=421)&&(input_value.value<=500)){
+              AQI=(5/4)*(input_value.value-420)+300;
+              aqi_value.value=Math.round(AQI);
+            }
+            else if((input_value.value>=501)&&(input_value.value<600)){
+              AQI=(input_value.value-500)+400;
+              aqi_value.value= Math.round(AQI);
+            }
+            else{
+              AQI=500;
+              aqi_value.value= AQI;
+            } 
+          }
+          console.log(AQI);
+          Classify_pm(AQI);
+        }
+
+        Classify_pm=(aqi)=>{
+          if(aqi<51){
+            aqi_category.style.backgroundColor = "rgb(0,228,0)";
+            aqi_category.value="Good";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="None";
+            caution_value.value="None";
+          }
+          if((aqi>=51)&&(aqi<=100)){
+            aqi_category.style.backgroundColor = "rgb(255,255,0)";
+            aqi_category.value="Moderate";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Unusually sensitive people should consider reducing prolonged or heavy exertion.";
+            caution_value.value="Unusually sensitive people should consider reducing prolonged or heavy exertion.";
+          }
+          if((aqi>=101)&&(aqi<151)){
+            aqi_category.style.backgroundColor = "rgb(255,126,0)";
+            aqi_category.value="Unhealthy for Sensitive Groups";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Increasing likelihood of respiratory symptoms in sensitive individuals, aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should limit prolonged exertion.";
+          }
+          if((aqi>=151)&&(aqi<201)){
+            aqi_category.style.backgroundColor = "rgb(255,0,0)";
+            aqi_category.value="Unhealthy";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Increased aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; increased respiratory effects in general population.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should avoid prolonged exertion; everyone else should limit prolonged exertion.";
+          }
+          if((aqi>=201)&&(aqi<301)){
+            aqi_category.style.backgroundColor = "rgb(143,63,151)";
+            aqi_category.value="Very Unhealthy";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Significant aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; significant increase in respiratory effects in general population.";
+            caution_value.value="People with respiratory or heart disease, the elderly and children should avoid any outdoor activity; everyone else should avoid prolonged exertion.";
+          }
+          if((aqi>=301)){
+            aqi_category.style.backgroundColor = "rgb(126,0,35)";
+            aqi_category.value="Hazardous";
+            sensitivegroup_value.value="People with respiratory or heart disease, the elderly and children are the groups most at risk.";
+            effect_value.value="Serious aggravation of heart or lung disease and premature mortality in persons with cardiopulmonary disease and the elderly; serious risk of respiratory effects in general population.";
+            caution_value.value="Everyone should avoid any outdoor exertion; people with respiratory or heart disease, the elderly and children should remain indoors.";
+          }
+        }
+
+        document.getElementById('selectapollutnat').addEventListener('change', function() {
+        selectedValue = this.value;
+        if(selectedValue==1||selectedValue==2){
+          unit.value="ug/m3";
+        }
+        else if(selectedValue==3){
+          unit.value="ppm";
+        }
+        else (unit.value="ppb");
+       
+        });
+
+        btn_reset.addEventListener("click",(e)=>{
+          input_value="";
+          aqi_category.style.removeProperty('background-color');
+          aqi_category.value="";
+          aqi_value.value="";
+          sensitivegroup_value.value="";
+          effect_value.value="";
+          caution_value.value="";
+        })
+
+
+      </script>
+    
+</body>
+</html>

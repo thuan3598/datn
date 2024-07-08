@@ -1,0 +1,3276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="UCLA air quality dashboard" />
+    <link rel="stylesheet" href="/css/css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://map.ucla.edu/aq/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://map.ucla.edu/aq/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://map.ucla.edu/aq/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="https://map.ucla.edu/aq/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="https://map.ucla.edu/aq/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#2774ae" />
+    <link rel="manifest" href="https://map.ucla.edu/aq/manifest.json" />
+    <link rel="stylesheet" href="/css/mapbox.css" />
+    <title>UCLA AirQual</title>
+    <script async="" src="./UCLA AirQual_files/js"></script>
+    <script>
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (window.dataLayer = window.dataLayer || []),
+        gtag("js", new Date()),
+        gtag("config", "G-MKBZLHF91E");
+    </script>
+    <link href="/css/main.a9a8f944.chunk.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="jss4">
+        <img
+          alt="UCLA AirQual"
+          class="jss3"
+          src="/image/aq_logo.cc9fcd1d.svg"
+        /><img
+          alt="UCLA"
+          class="jss5"
+          src="/image/UCLA_logo_wht.f6d3cf0e.svg"
+        />
+        <div class="jss6">
+          <div class="jss8">
+            <button
+              class="MuiButtonBase-root MuiButton-root jss7 MuiButton-contained MuiButton-containedSizeLarge MuiButton-sizeLarge"
+              tabindex="0"
+              type="button"
+            >
+              <span class="MuiButton-label"
+                ><span class="MuiButton-startIcon MuiButton-iconSizeLarge"
+                  ><svg
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                    ></path></svg></span
+                >Refresh</span
+              ><span class="MuiTouchRipple-root"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="jss1">
+        <div class="MuiGrid-root jss2 MuiGrid-container MuiGrid-spacing-xs-3">
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6"
+          >
+            <div class="jss9">
+              <h2 class="MuiTypography-root jss11 MuiTypography-h5">
+                Campus Air Quality
+              </h2>
+              <p
+                class="MuiTypography-root jss10 MuiTypography-body2 MuiTypography-paragraph"
+              >
+                Real-time
+                <a
+                  class="MuiTypography-root MuiLink-root jss12 MuiLink-underlineHover MuiTypography-colorPrimary"
+                  href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics"
+                  target="_blank"
+                  >US EPA Air Quality Index for particulate (PM2.5) air
+                  matter</a
+                >.
+              </p>
+              <div class="MuiGrid-root MuiGrid-container">
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
+                  style="position: relative"
+                >
+                  <p
+                    class="MuiTypography-root jss13 MuiTypography-subtitle2 MuiTypography-paragraph"
+                  >
+                    Sun, May 5, 2024, 10:38 PM
+                  </p>
+                  <div class="jss14">
+                    <div id="aqi_gauge" style="width: 100%">
+                      <svg
+                        width="451.9875183105469"
+                        height="221.47388397216798"
+                      >
+                        <g
+                          transform="translate(13.53837554931637, 2.2546250915527346)"
+                        >
+                          <g
+                            class="doughnut"
+                            transform="translate(212.45538360595708, 212.45538360595708)"
+                          >
+                            <g class="arc">
+                              <path
+                                d="M-212.45538360595708,-2.601828054946584e-14A212.45538360595708,212.45538360595708,0,0,1,-183.9917593735268,-106.22769180297853L-119.59464359279242,-69.04799967193604A138.0959993438721,138.0959993438721,0,0,0,-138.0959993438721,-1.6911882357152795e-14Z"
+                                style="fill: limegreen"
+                              ></path>
+                            </g>
+                            <g class="arc">
+                              <path
+                                d="M-183.9917593735268,-106.22769180297853A212.45538360595708,212.45538360595708,0,0,1,-106.22769180297858,-183.99175937352675L-69.04799967193608,-119.5946435927924A138.0959993438721,138.0959993438721,0,0,0,-119.59464359279242,-69.04799967193604Z"
+                                style="fill: yellow"
+                              ></path>
+                            </g>
+                            <g class="arc">
+                              <path
+                                d="M-106.22769180297858,-183.99175937352675A212.45538360595708,212.45538360595708,0,0,1,-3.416543144224779e-14,-212.45538360595708L-2.2207530437461064e-14,-138.0959993438721A138.0959993438721,138.0959993438721,0,0,0,-69.04799967193608,-119.5946435927924Z"
+                                style="fill: orange"
+                              ></path>
+                            </g>
+                            <g class="arc">
+                              <path
+                                d="M-3.416543144224779e-14,-212.45538360595708A212.45538360595708,212.45538360595708,0,0,1,106.22769180297851,-183.9917593735268L69.04799967193604,-119.59464359279242A138.0959993438721,138.0959993438721,0,0,0,-2.2207530437461064e-14,-138.0959993438721Z"
+                                style="fill: red"
+                              ></path>
+                            </g>
+                            <g class="arc">
+                              <path
+                                d="M106.22769180297851,-183.9917593735268A212.45538360595708,212.45538360595708,0,0,1,183.99175937352675,-106.22769180297858L119.5946435927924,-69.04799967193608A138.0959993438721,138.0959993438721,0,0,0,69.04799967193604,-119.59464359279242Z"
+                                style="fill: rgb(143, 63, 151)"
+                              ></path>
+                            </g>
+                            <g class="arc">
+                              <path
+                                d="M183.99175937352675,-106.22769180297858A212.45538360595708,212.45538360595708,0,0,1,212.45538360595708,-9.434914343396143e-14L138.0959993438721,-6.132694323207493e-14A138.0959993438721,138.0959993438721,0,0,0,119.5946435927924,-69.04799967193608Z"
+                                style="fill: rgb(126, 0, 35)"
+                              ></path>
+                            </g>
+                          </g>
+                          <g
+                            class="needle"
+                            transform="translate(212.45538360595708, 212.45538360595708)"
+                          >
+                            <path
+                              d="M -1.873021058518594 6.511551977145933 L -115.68388905968293 -23.11443339785776 L 1.8730210585185925 -19.79998501547601"
+                              fill="#333333"
+                            ></path>
+                            <circle
+                              cx="0"
+                              cy="-6.64421651916504"
+                              r="13.28843303833008"
+                              fill="#333333"
+                            ></circle>
+                          </g>
+                          <g
+                            class="text-group"
+                            transform="translate(212.45538360595708, 126.22769180297854)"
+                          >
+                            <text
+                              style="
+                                font-size: 40.268px;
+                                fill: rgb(255, 255, 255);
+                                text-anchor: middle;
+                              "
+                            >
+                              14
+                            </text>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="jss94">
+                      <svg
+                        class="MuiSvgIcon-root jss96"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                        ></path>
+                      </svg>
+                      <h4 class="MuiTypography-root jss95 MuiTypography-body1">
+                        Air quality data unavailable
+                      </h4>
+                    </div>
+                  </div>
+                  <h3
+                    class="MuiTypography-root jss16 MuiTypography-h4 MuiTypography-gutterBottom"
+                  >
+                    Good
+                  </h3>
+                  <p
+                    class="MuiTypography-root jss17 MuiTypography-subtitle1 MuiTypography-gutterBottom MuiTypography-paragraph"
+                  >
+                    No individuals expected to be affected.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+                >
+                  <h3 class="MuiTypography-root jss18 MuiTypography-subtitle2">
+                    Air Quality Index
+                  </h3>
+                  <ul class="MuiList-root MuiList-dense">
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: limegreen"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Good</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          0‐50
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">
+                          No individuals expected to be affected.
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: yellow"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Moderate</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          51‐100
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">
+                          Unusually sensitive individuals (people with lung and
+                          heart disease) may be affected.
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: orange"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Unhealthy for Sensitive Groups</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          101‐150
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">
+                          Sensitive groups including people with heart or lung
+                          disease, older adults, pregnant women, and children
+                          affected.
+                        </div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: red"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Unhealthy</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          151‐200
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">Everyone affected.</div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: rgb(143, 63, 151)"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Very Unhealthy</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          201‐300
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">Everyone affected.</div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: rgb(126, 0, 35)"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Very Hazardous</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          301‐500
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">Everyone affected.</div>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss21 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div class="MuiListItemIcon-root jss25">
+                        <svg
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          style="color: black"
+                        >
+                          <circle cx="12" cy="12" r="8"></circle>
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss22 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary jss23 MuiTypography-body2 MuiTypography-displayBlock"
+                          >Beyond the AQI</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary jss24 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          &gt;500
+                        </p>
+                      </div>
+                      <div class="MuiListItemIcon-root jss19">
+                        <svg
+                          class="MuiSvgIcon-root jss20 MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                          ></path>
+                        </svg>
+                        <div class="jss26 hidden">Everyone affected.</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-6"
+          >
+            <div class="jss28">
+              <h2 class="MuiTypography-root jss29 MuiTypography-h5">
+                Past 24 Hours
+              </h2>
+              <p
+                class="MuiTypography-root jss34 MuiTypography-subtitle2 MuiTypography-paragraph"
+              >
+                Sat, 5/4/24, 09:00 PM to Sun, 5/5/24, 09:00 PM
+              </p>
+              <div style="height: 352px; width: 100%">
+                <div
+                  id="reactgooglegraph-8"
+                  class=""
+                  data-testid="1"
+                  style="height: 352px; width: 100%"
+                >
+                  <div style="position: relative">
+                    <div
+                      dir="ltr"
+                      style="position: relative; width: 678px; height: 352px"
+                    >
+                      <div
+                        style="
+                          position: absolute;
+                          left: 0px;
+                          top: 0px;
+                          width: 100%;
+                          height: 100%;
+                        "
+                        aria-label="A chart."
+                      >
+                        <svg
+                          width="678"
+                          height="352"
+                          aria-label="A chart."
+                          style="overflow: hidden"
+                        >
+                          <defs id="_ABSTRACT_RENDERER_ID_1104">
+                            <clipPath id="_ABSTRACT_RENDERER_ID_1105">
+                              <rect
+                                x="32"
+                                y="8"
+                                width="646"
+                                height="306"
+                              ></rect>
+                            </clipPath>
+                          </defs>
+                          <g>
+                            <rect
+                              x="32"
+                              y="8"
+                              width="646"
+                              height="306"
+                              stroke="none"
+                              stroke-width="0"
+                              fill-opacity="0"
+                              fill="#ffffff"
+                            ></rect>
+                            <g
+                              clip-path="url(https://map.ucla.edu/aq/#_ABSTRACT_RENDERER_ID_1105)"
+                            >
+                              <g>
+                                <rect
+                                  x="32"
+                                  y="313"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#cccccc"
+                                ></rect>
+                                <rect
+                                  x="32"
+                                  y="237"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#cccccc"
+                                ></rect>
+                                <rect
+                                  x="32"
+                                  y="161"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#cccccc"
+                                ></rect>
+                                <rect
+                                  x="32"
+                                  y="84"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#cccccc"
+                                ></rect>
+                                <rect
+                                  x="32"
+                                  y="8"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#cccccc"
+                                ></rect>
+                              </g>
+                              <g>
+                                <rect
+                                  x="32"
+                                  y="313"
+                                  width="646"
+                                  height="1"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#333333"
+                                ></rect>
+                              </g>
+                              <g>
+                                <path
+                                  d="M45.4,16.125L71.2,8.5L97,16.125L122.8,31.375L148.60000000000002,54.25L174.4,69.5L200.20000000000002,92.375L226,92.375L251.8,100L277.6,107.625L303.40000000000003,130.5L329.2,138.125L355,161L380.8,168.625L406.6,214.375L432.40000000000003,222L458.2,237.25L484,252.5L509.8,267.75L535.6,267.75L561.4,252.5L587.2,214.375L613,199.125L638.8000000000001,206.75L664.6,206.75"
+                                  stroke="#00ffff"
+                                  stroke-width="6"
+                                  fill-opacity="1"
+                                  fill="none"
+                                ></path>
+                              </g>
+                            </g>
+                            <g></g>
+                            <g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="49.25"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 49.25 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  9P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="75.05"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 75.05 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  10P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="100.85"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 100.85 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  11P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="126.64999999999999"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 126.64999999999999 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  12A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="152.45000000000002"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 152.45000000000002 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  1A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="178.25"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 178.25 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  2A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="204.05"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 204.05 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  3A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="229.85"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 229.85 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  4A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="255.65"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 255.65 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  5A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="281.45000000000005"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 281.45000000000005 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  6A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="307.25000000000006"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 307.25000000000006 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  7A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="333.05"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 333.05 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  8A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="358.85"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 358.85 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  9A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="384.65000000000003"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 384.65000000000003 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  10A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="410.45000000000005"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 410.45000000000005 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  11A
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="436.25000000000006"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 436.25000000000006 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  12P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="462.05"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 462.05 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  1P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="487.85"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 487.85 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  2P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="513.65"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 513.65 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  3P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="539.45"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 539.45 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  4P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="565.25"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 565.25 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  5P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="591.0500000000001"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 591.0500000000001 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  6P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="616.85"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 616.85 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  7P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="642.6500000000001"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 642.6500000000001 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  8P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="668.45"
+                                  y="326.5"
+                                  font-family="Roboto"
+                                  font-size="11"
+                                  transform="rotate(-90 668.45 326.5)"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  9P
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="22.5"
+                                  y="317.7"
+                                  font-family="Roboto"
+                                  font-size="12"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  0
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="22.5"
+                                  y="241.45"
+                                  font-family="Roboto"
+                                  font-size="12"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  10
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="22.5"
+                                  y="165.2"
+                                  font-family="Roboto"
+                                  font-size="12"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  20
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="22.5"
+                                  y="88.95"
+                                  font-family="Roboto"
+                                  font-size="12"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  30
+                                </text>
+                              </g>
+                              <g>
+                                <text
+                                  text-anchor="end"
+                                  x="22.5"
+                                  y="12.7"
+                                  font-family="Roboto"
+                                  font-size="12"
+                                  stroke="none"
+                                  stroke-width="0"
+                                  fill="#ffffff"
+                                >
+                                  40
+                                </text>
+                              </g>
+                            </g>
+                          </g>
+                          <g></g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      style="
+                        display: none;
+                        position: absolute;
+                        top: 362px;
+                        left: 688px;
+                        white-space: nowrap;
+                        font-family: Roboto;
+                        font-size: 12px;
+                      "
+                    >
+                      ...
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="jss32">
+                <fieldset class="MuiFormControl-root">
+                  <div
+                    class="MuiFormGroup-root jss33 MuiFormGroup-row"
+                    role="radiogroup"
+                    aria-label="Time period"
+                  >
+                    <label class="MuiFormControlLabel-root"
+                      ><span
+                        class="MuiButtonBase-root MuiIconButton-root jss159 MuiRadio-root jss31 MuiRadio-colorSecondary jss160 Mui-checked jss27 MuiIconButton-colorSecondary"
+                        aria-disabled="false"
+                        ><span class="MuiIconButton-label"
+                          ><input
+                            class="jss162"
+                            name="period"
+                            type="radio"
+                            value="day"
+                            checked="" />
+                          <div class="jss163 jss165">
+                            <svg
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                              ></path></svg
+                            ><svg
+                              class="MuiSvgIcon-root jss164"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                              ></path>
+                            </svg></div></span
+                        ><span class="MuiTouchRipple-root"></span></span
+                      ><span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                        >Day</span
+                      ></label
+                    ><label class="MuiFormControlLabel-root"
+                      ><span
+                        class="MuiButtonBase-root MuiIconButton-root jss159 MuiRadio-root jss31 MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                        aria-disabled="false"
+                        ><span class="MuiIconButton-label"
+                          ><input
+                            class="jss162"
+                            name="period"
+                            type="radio"
+                            value="week" />
+                          <div class="jss163">
+                            <svg
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                              ></path></svg
+                            ><svg
+                              class="MuiSvgIcon-root jss164"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                              ></path>
+                            </svg></div></span
+                        ><span class="MuiTouchRipple-root"></span></span
+                      ><span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                        >Week</span
+                      ></label
+                    ><label class="MuiFormControlLabel-root"
+                      ><span
+                        class="MuiButtonBase-root MuiIconButton-root jss159 MuiRadio-root jss31 MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                        aria-disabled="false"
+                        ><span class="MuiIconButton-label"
+                          ><input
+                            class="jss162"
+                            name="period"
+                            type="radio"
+                            value="month" />
+                          <div class="jss163">
+                            <svg
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                              ></path></svg
+                            ><svg
+                              class="MuiSvgIcon-root jss164"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                              ></path>
+                            </svg></div></span
+                        ><span class="MuiTouchRipple-root"></span></span
+                      ><span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                        >Month</span
+                      ></label
+                    ><label class="MuiFormControlLabel-root"
+                      ><span
+                        class="MuiButtonBase-root MuiIconButton-root jss159 MuiRadio-root jss31 MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                        aria-disabled="false"
+                        ><span class="MuiIconButton-label"
+                          ><input
+                            class="jss162"
+                            name="period"
+                            type="radio"
+                            value="year" />
+                          <div class="jss163">
+                            <svg
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                              ></path></svg
+                            ><svg
+                              class="MuiSvgIcon-root jss164"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
+                              ></path>
+                            </svg></div></span
+                        ><span class="MuiTouchRipple-root"></span></span
+                      ><span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                        >Year</span
+                      ></label
+                    >
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3">
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <div class="jss35">
+              <div class="MuiBox-root jss41 jss37" classes="[object Object]">
+                <h3 class="MuiTypography-root jss38 MuiTypography-h5">
+                  Actions to Take at This Level
+                </h3>
+              </div>
+              <div class="jss36">
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Outdoor Workers/Volunteers
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Classes
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Campus Operations
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Health System Operations
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Athletics &amp; Outdoor Rec
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Outdoor Camps/Events
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+                <h3
+                  class="MuiTypography-root jss156 MuiTypography-subtitle1 MuiTypography-colorPrimary"
+                >
+                  Pre‐K‐12
+                </h3>
+                <ul class="jss158">
+                  <li class="jss157">
+                    <span class="MuiTypography-root jss155 MuiTypography-body2"
+                      >No Action Anticipated</span
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="jss94">
+                <svg
+                  class="MuiSvgIcon-root jss96"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  ></path>
+                </svg>
+                <h4 class="MuiTypography-root jss95 MuiTypography-body1">
+                  Actions unavailable
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-6"
+          >
+            <div class="jss42">
+              <h3
+                class="MuiTypography-root jss44 MuiTypography-h5 MuiTypography-gutterBottom"
+              >
+                Monitoring Locations
+              </h3>
+              <div
+                class="jss43 leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+                id="map"
+                tabindex="0"
+              >
+                <div
+                  class="leaflet-pane leaflet-map-pane"
+                  style="transform: translate3d(0px, 0px, 0px)"
+                >
+                  <div class="leaflet-pane leaflet-tile-pane">
+                    <div class="leaflet-layer" style="z-index: 1; opacity: 1">
+                      <div
+                        class="leaflet-tile-container leaflet-zoom-animated"
+                        style="
+                          z-index: 18;
+                          transform: translate3d(-41px, -63px, 0px) scale(1);
+                        "
+                      >
+                        <img
+                          alt=""
+                          role="presentation"
+                          src="https://a.tile.openstreetmap.org/15/5602/13082.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(179px, 193px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://b.tile.openstreetmap.org/15/5603/13082.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(435px, 193px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://c.tile.openstreetmap.org/15/5602/13081.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(179px, -63px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://a.tile.openstreetmap.org/15/5603/13081.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(435px, -63px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://b.tile.openstreetmap.org/15/5602/13083.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(179px, 449px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://c.tile.openstreetmap.org/15/5603/13083.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(435px, 449px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://c.tile.openstreetmap.org/15/5601/13082.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(-77px, 193px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://c.tile.openstreetmap.org/15/5604/13082.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(691px, 193px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://b.tile.openstreetmap.org/15/5601/13081.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(-77px, -63px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://b.tile.openstreetmap.org/15/5604/13081.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(691px, -63px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://a.tile.openstreetmap.org/15/5601/13083.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(-77px, 449px, 0px);
+                            opacity: 1;
+                          "
+                        /><img
+                          alt=""
+                          role="presentation"
+                          src="https://a.tile.openstreetmap.org/15/5604/13083.png"
+                          class="leaflet-tile leaflet-tile-loaded"
+                          style="
+                            width: 256px;
+                            height: 256px;
+                            transform: translate3d(691px, 449px, 0px);
+                            opacity: 1;
+                          "
+                        />
+                      </div>
+                      <div
+                        class="leaflet-tile-container leaflet-zoom-animated"
+                        style="
+                          z-index: 17;
+                          transform: translate3d(-40px, -62px, 0px) scale(2);
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="leaflet-pane leaflet-shadow-pane"></div>
+                  <div class="leaflet-pane leaflet-overlay-pane">
+                    <svg
+                      pointer-events="none"
+                      class="leaflet-zoom-animated"
+                      width="852"
+                      height="518"
+                      viewBox="-71 -43 852 518"
+                      style="transform: translate3d(-71px, -43px, 0px)"
+                    >
+                      <g>
+                        <path
+                          class="leaflet-interactive"
+                          stroke="none"
+                          fill="limegreen"
+                          fill-opacity="0.7"
+                          fill-rule="evenodd"
+                          d="M162,85a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0 "
+                        ></path>
+                        <path
+                          class="leaflet-interactive"
+                          stroke="none"
+                          fill="limegreen"
+                          fill-opacity="0.7"
+                          fill-rule="evenodd"
+                          d="M188,384a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0 "
+                        ></path>
+                        <path
+                          class="leaflet-interactive"
+                          stroke="none"
+                          fill="limegreen"
+                          fill-opacity="0.7"
+                          fill-rule="evenodd"
+                          d="M388,228a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0 "
+                        ></path>
+                        <path
+                          class="leaflet-interactive"
+                          stroke="none"
+                          fill="limegreen"
+                          fill-opacity="0.7"
+                          fill-rule="evenodd"
+                          d="M274,260a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0 "
+                        ></path>
+                        <path
+                          class="leaflet-interactive"
+                          stroke="none"
+                          fill="limegreen"
+                          fill-opacity="0.7"
+                          fill-rule="evenodd"
+                          d="M313,47a80,80 0 1,0 160,0 a80,80 0 1,0 -160,0 "
+                        ></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="leaflet-pane leaflet-marker-pane"></div>
+                  <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                  <div class="leaflet-pane leaflet-popup-pane"></div>
+                  <div
+                    class="leaflet-proxy leaflet-zoom-animated"
+                    style="
+                      transform: translate3d(1.43433e6px, 3.34908e6px, 0px)
+                        scale(16384);
+                    "
+                  ></div>
+                </div>
+                <div class="leaflet-control-container">
+                  <div class="leaflet-top leaflet-left"></div>
+                  <div class="leaflet-top leaflet-right">
+                    <div
+                      class="leaflet-control-zoom leaflet-bar leaflet-control"
+                    >
+                      <a
+                        class="leaflet-control-zoom-in"
+                        href="#"
+                        title="Zoom in"
+                        role="button"
+                        aria-label="Zoom in"
+                        >+</a
+                      ><a
+                        class="leaflet-control-zoom-out"
+                        href="#"
+                        title="Zoom out"
+                        role="button"
+                        aria-label="Zoom out"
+                        >−</a
+                      >
+                    </div>
+                  </div>
+                  <div class="leaflet-bottom leaflet-left"></div>
+                  <div class="leaflet-bottom leaflet-right">
+                    <div class="leaflet-control-attribution leaflet-control">
+                      <a
+                        href="https://leafletjs.com"
+                        title="A JS library for interactive maps"
+                        >Leaflet</a
+                      >
+                      | ©
+                      <a href="https://www.openstreetmap.org/copyright"
+                        >OpenStreetMap</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="jss94">
+                <svg
+                  class="MuiSvgIcon-root jss96"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                  ></path>
+                </svg>
+                <h4 class="MuiTypography-root jss95 MuiTypography-body1">
+                  Monitoring locations unavailable
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+          >
+            <div class="jss45">
+              <div class="jss49">
+                <div
+                  class="jss51"
+                  style="
+                    background-image: url('https://api.weather.gov/icons/land/day/few,6?size=small');
+                  "
+                >
+                  <div>
+                    <div class="MuiTypography-root jss53 MuiTypography-h2">
+                      52°
+                    </div>
+                    <p class="MuiTypography-root jss52 MuiTypography-subtitle1">
+                      Sunny
+                    </p>
+                  </div>
+                </div>
+                <div class="jss50">
+                  <ul class="MuiList-root MuiList-dense MuiList-padding">
+                    <li
+                      class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss48 first MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary type MuiTypography-body2 MuiTypography-displayBlock"
+                          >Wind</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary value MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          W 15 mph
+                        </p>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss48 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary type MuiTypography-body2 MuiTypography-displayBlock"
+                          >Pressure</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary value MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          29.88 inHg
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss48 first MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary type MuiTypography-body2 MuiTypography-displayBlock"
+                          >Visibility</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary value MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          10 mi
+                        </p>
+                      </div>
+                      <div
+                        class="MuiListItemText-root jss48 MuiListItemText-dense MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary type MuiTypography-body2 MuiTypography-displayBlock"
+                          >Humidity</span
+                        >
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary value MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          86%
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="jss56">
+                <div class="MuiBox-root jss93 jss59" classes="[object Object]">
+                  <h6
+                    class="MuiTypography-root jss60 MuiTypography-h6"
+                    componenent="h3"
+                  >
+                    Extended Forecast
+                  </h6>
+                </div>
+                <div class="jss57">
+                  <ul class="MuiList-root jss63 MuiList-dense">
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Today</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>66°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Sunny, with a high near 66. West wind 15 to 25 mph,
+                          with gusts as high as 35 mph.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/wind_few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Tonight</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>51°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Mostly clear, with a low around 51. North wind 5 to 20
+                          mph, with gusts as high as 30 mph.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Monday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>68°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Sunny, with a high near 68. West wind 5 to 15 mph,
+                          with gusts as high as 25 mph.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Monday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>53°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog after 5am. Partly cloudy, with a low around
+                          53. North northeast wind 0 to 10 mph, with gusts as
+                          high as 20 mph.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/sct/fog?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Tuesday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>70°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog before 11am. Sunny, with a high near 70.
+                          Southwest wind 0 to 15 mph, with gusts as high as 20
+                          mph.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/fog/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Tuesday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>54°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Mostly clear, with a low around 54.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Wednesday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>71°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Sunny, with a high near 71.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Wednesday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>55°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Mostly clear, with a low around 55.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Thursday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>72°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Sunny, with a high near 72.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/few?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Thursday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>56°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog after 11pm. Mostly cloudy, with a low
+                          around 56.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/fog?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Friday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>71°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog before 11am. Mostly sunny, with a high near
+                          71.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/fog/sct?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Friday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>56°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog after 11pm. Mostly cloudy, with a low
+                          around 56.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/fog?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Saturday</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss54"></span>70°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog before 11am. Mostly sunny, with a high near
+                          70.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/day/fog/sct?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                    <li
+                      class="MuiListItem-root jss64 MuiListItem-dense MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemText-root jss58 MuiListItemText-dense"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          >Saturday Night</span
+                        >
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-dense"
+                        style="flex-grow: 1"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                          ><span class="jss55"></span>55°</span
+                        >
+                      </div>
+                      <div class="MuiListItemIcon-root jss62">
+                        <div class="jss65 hidden">
+                          Patchy fog after 11pm. Mostly cloudy, with a low
+                          around 55.
+                        </div>
+                        <i
+                          class="jss61"
+                          style="
+                            background-image: url('https://api.weather.gov/icons/land/night/fog?size=medium');
+                          "
+                        ></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="jss66">
+          <h2
+            class="MuiTypography-root jss67 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            University of California AQI‐Based Decision‐Making Matrix for
+            Wildfire Smoke Events (Version 1.1)
+          </h2>
+          <p
+            class="MuiTypography-root jss68 MuiTypography-caption MuiTypography-paragraph"
+          >
+            Required action in bolded red text
+          </p>
+          <div class="jss70">
+            <table
+              class="MuiTable-root jss70 MuiTable-stickyHeader"
+              aria-label="University of California AQI‐Based Decision‐Making Matrix for Wildfire Smoke Events"
+            >
+              <thead class="MuiTableHead-root">
+                <tr class="MuiTableRow-root MuiTableRow-head">
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Levels of Health Concern
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Current PM2.5 AQI Value
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Who is Affected?
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                    colspan="7"
+                  >
+                    Actions
+                  </th>
+                </tr>
+                <tr class="MuiTableRow-root MuiTableRow-head">
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                    colspan="3"
+                  ></th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Outdoor Workers/<br />Volunteers
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Classes
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Campus Operations
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Health System Operations
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Athletics &amp; Outdoor Rec
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Outdoor Camps/<br />Events
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall MuiTableCell-stickyHeader"
+                    scope="col"
+                  >
+                    Pre‐K‐12
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="MuiTableBody-root">
+                <tr
+                  class="MuiTableRow-root"
+                  style="background-color: rgba(50, 205, 50, 0.2)"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: limegreen;
+                      color: black;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Good
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    0‐50
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    No individuals expected to be affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: yellow;
+                      color: black;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Moderate
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    51‐100
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Unusually sensitive individuals (people with lung and heart
+                    disease) may be affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Unusually sensitive people may require work
+                        accommodations.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        In patient care areas, consider modifying filtered
+                        mechanical ventilation systems and/or implementing other
+                        controls to reduce outdoor air intake.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: orange;
+                      color: black;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Unhealthy for Sensitive Groups
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    101‐150
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Sensitive groups including people with heart or lung
+                    disease, older adults, pregnant women, and children
+                    affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Workers in sensitive groups may require work
+                        accommodations.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">No Action Anticipated</li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Consider closing building doors and windows to reduce
+                        outdoor air intake
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        As feasible, modify filtered mechanical ventilation
+                        systems to reduce outdoor air intake in patient care
+                        areas.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Medical/athletic staff/outdoor recreation staff
+                          should consult with individuals who fall into the
+                          sensitive groups about participation in practice,
+                          competition, and/or outdoor events.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        At higher end of range, consider moving activities
+                        indoors.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        For longer activities such as athletic practice, take
+                        more breaks and do less intense activities.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: red;
+                      color: white;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Unhealthy
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    151‐200
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Everyone affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Limit outdoor work and prolonged or heavy exertion if
+                          practicable.</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Reassign employees who work outdoors for more than
+                          one hour or provide N95 respirators for voluntary
+                          use.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Consider academic accommodations for students and
+                        faculty with pre‐existing health conditions.
+                      </li>
+                      <li class="jss71">
+                        Consider cancelling or moving outdoor classes indoors.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Consider making N95 respirators and use/care guidance
+                        available for voluntary use.
+                      </li>
+                      <li class="jss71">
+                        Consider increasing campus-managed shuttle/bus service.
+                      </li>
+                      <li class="jss71">
+                        As feasible, modify filtered mechanical ventilation
+                        systems to reduce outdoor air intake.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Consider making N95 respirators and use/care guidance
+                        available for voluntary use.
+                      </li>
+                      <li class="jss71">
+                        In patient care areas, consider monitoring indoor air
+                        quality and implement mitigation actions if indoor AQI
+                        is within this range.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Medical/athletic training staff should closely monitor
+                        the health of all athletes in practice and competition.
+                        Modifications to athletic activities should be
+                        considered and implemented as necessary.
+                      </li>
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Shorten/modify outdoor recreational activity to limit
+                          prolonged or heavy exertion.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Consider cancellation of more intense outdoor events or
+                        move events indoors.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >For all outdoor activities, take more breaks and do
+                          less intense activities.</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        Consider moving longer or more intense activities
+                        indoors or rescheduling them to another day or time.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: rgb(143, 63, 151);
+                      color: white;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Very Unhealthy
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    201‐300
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Everyone affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Suspend outdoor work. If work is absolutely
+                          necessary, provide N‐95 respirators for voluntary
+                          use.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Per local procedures and in consultation with the
+                          divisional Academic Senate Chair or designee, cancel
+                          or restructure classes if current AQI levels have
+                          maintained in this range and are expected to continue
+                          (academic activities that support clinical operations
+                          or research may be excluded from cancellation).</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        To the extent possible, curtail campus operations.
+                      </li>
+                      <li class="jss71">
+                        Consider monitoring indoor air quality and implement
+                        mitigation actions if indoor AQI is within this range.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        To the extent possible, curtail health system
+                        operations.
+                      </li>
+                      <li class="jss71">
+                        Consider monitoring indoor air quality and implement
+                        mitigation actions if indoor AQI is within this range.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Outdoor athletic activities should be moved indoors
+                          or delayed, postponed, or relocated.</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Cancel or move indoors outdoor recreational
+                          activities.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Cancel outdoor events involving activity (e.g.,
+                          sports).</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        Consider cancellation of outdoor events that do not
+                        involve activity (e.g., concerts).
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Close school if current AQI levels have maintained in
+                          this range and are expected to continue.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: rgb(126, 0, 35);
+                      color: white;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Very Hazardous
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    301‐500
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Everyone affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Suspend outdoor work. If work is absolutely
+                          necessary, provide N‐95 respirators for voluntary
+                          use.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Per local procedures and in consultation with the
+                          divisional Academic Senate Chair or designee, cancel
+                          or restructure classes if current AQI levels have
+                          maintained in this range and are expected to continue
+                          (academic activities that support clinical operations
+                          or research may be excluded from cancellation).</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        To the extent possible, curtail campus operations.
+                      </li>
+                      <li class="jss71">
+                        Consider monitoring indoor air quality and implement
+                        mitigation actions if indoor AQI is within this range.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        To the extent possible, curtail health system
+                        operations.
+                      </li>
+                      <li class="jss71">
+                        Consider monitoring indoor air quality and implement
+                        mitigation actions if indoor AQI is within this range.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Cancel or move indoors all outdoor athletic and
+                          recreation events/activities.</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        Consider cancellation of indoor events/activities based
+                        on indoor air quality measurements.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Cancel all outdoor events and camp activities.</span
+                        >
+                      </li>
+                      <li class="jss71">
+                        Consider cancellation of indoor camps that require
+                        participants or families to travel to and from campus.
+                      </li>
+                    </ul>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="1"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Close school if current AQI levels have maintained in
+                          this range and are expected to continue.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      background-color: black;
+                      color: white;
+                      text-align: center;
+                      vertical-align: top;
+                    "
+                  >
+                    Beyond the AQI
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="
+                      text-align: center;
+                      vertical-align: top;
+                      white-space: nowrap;
+                    "
+                  >
+                    &gt;500
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                    style="vertical-align: top; width: 10%"
+                  >
+                    Everyone affected.
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body jss73 MuiTableCell-sizeSmall"
+                    colspan="7"
+                  >
+                    <ul class="jss74">
+                      <li class="jss71">
+                        Follow recommendations for the Hazardous Category.
+                      </li>
+                      <li class="jss71">
+                        <span class="jss72"
+                          >Suspend outdoor work and activities. If outdoor work
+                          is absolutely necessary, N95 respirators are mandatory
+                          and require training and fit testing.</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="jss75">
+            <h2
+              class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"
+            >
+              Key characteristics:
+            </h2>
+            <ul>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >The matrix is designed for use when wildfire smoke conditions
+                  result in worsening and unhealthy air quality. It does not
+                  apply if there is a direct threat of wildfire and/or other
+                  significant hazard to the location, or for smog‐related air
+                  quality conditions.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Required actions are in bolded red text. These are definitive
+                  actions that must take place when ‐ but not before ‐ the
+                  corresponding AQI threshold is met.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Non‐bolded actions are recommended for consideration and
+                  should be implemented at the location’s discretion.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >The matrix is not a stand‐alone document. It should be used
+                  in conjunction with existing local response plans, protocols,
+                  and procedures including the Emergency Operations Plan, Crisis
+                  Management Plan, and Continuity of Operations Plans.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >If building indoor air quality is measured at a level
+                  consistent with the AQI thresholds, applicable mitigation
+                  measures should be implemented if feasible, and required
+                  actions listed in the matrix should be taken.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Contractors working at UC locations should follow the advice
+                  of their own employers.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >The Pre‐K‐12 actions apply to UC‐managed facilities
+                  only.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >The matrix incorporates actions required by Cal/OSHA Section
+                  5141.1.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >University sponsored outdoor events held at off‐campus
+                  locations are subject to actions associated with that
+                  location’s AQI levels.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Actions for athletic practice and competition were based on
+                  current National Collegiate Athletic Association (NCAA)
+                  guidance. Decisions regarding the cancellation and/or
+                  rescheduling of athletic competitions should be made in
+                  accordance with the NCAA. Rescheduling of athletic and
+                  recreation competitions may take place when the AQI lowers to
+                  an acceptable level.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Locations should ensure timely communication of AQI‐based
+                  decisions and expected actions via multiple and redundant
+                  communication methods.</span
+                >
+              </li>
+              <li>
+                <span class="MuiTypography-root MuiTypography-body1"
+                  >Higher AQI thresholds automatically incorporate all guidance
+                  and actions associated with lower AQI levels.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <h2
+            class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom"
+          >
+            Revision History
+          </h2>
+          <div class="jss76">
+            <table class="MuiTable-root" aria-label="Revision History">
+              <thead class="MuiTableHead-root">
+                <tr class="MuiTableRow-root MuiTableRow-head">
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                    scope="col"
+                  >
+                    Version
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                    scope="col"
+                  >
+                    Revision Date
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeSmall"
+                    scope="col"
+                  >
+                    Change Made
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="MuiTableBody-root">
+                <tr class="MuiTableRow-root">
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                  >
+                    <span class="MuiTypography-root MuiTypography-body2"
+                      >1.1</span
+                    >
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                  >
+                    <span class="MuiTypography-root MuiTypography-body2"
+                      >10/30/2019</span
+                    >
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
+                  >
+                    <ul class="jss77">
+                      <li>
+                        <span class="MuiTypography-root MuiTypography-body2"
+                          >Removed "PM2.5 (24hr avg; μg/m3)" column</span
+                        >
+                      </li>
+                      <li>
+                        <span class="MuiTypography-root MuiTypography-body2"
+                          >Renamed "Current AQI Value" column to "Current PM2.5
+                          AQI Value"</span
+                        >
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

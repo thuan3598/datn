@@ -1,0 +1,997 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  background-color: #f1f2f6;
+}
+
+/* ======================================================COMMON=================================================================== */
+a {
+  text-decoration: none;
+}
+.container {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+}
+
+ .btn {
+  display: inline-block;
+  min-width: 118px;
+  padding: 0 16px;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: #26a9e0;;
+  cursor: pointer;
+} 
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.main-content {
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.d-flex {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.good{
+  background-color: #379931;
+}
+
+ .moderate{
+  background-color: #D4CA2F;
+}
+
+ .unhealthy-for-sensitive-groups{
+  background-color: #E75834;
+}
+
+ .unhealthy{
+  background-color: #EA519F;
+}
+
+ .very-unhealthy{
+  background-color: #975AA0;
+}
+
+ .hazardous{
+  background-color: #BF2133;
+}
+
+.no-classify{
+  background-color: #171100;
+}
+
+.hide {
+	display: none !important;
+}
+
+/* ======================================================HEADER====================================================================*/
+.header {
+  background: #fffcf4;
+}
+
+.header .fixed {
+  z-index: 1;
+  position: sticky;
+  top: -28px;
+}
+.header .body {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 8px;
+}
+
+.nav {
+  margin-left: auto;
+}
+.nav ul {
+  display: flex;
+}
+
+.nav a {
+  position: relative;
+  color: #5f5b53;
+  font-size: 1.6rem;
+  padding: 8px 21px;
+}
+
+.nav li.active a,
+.nav a:hover {
+  color: #171100;
+  /* font-weight: 600; */
+  text-shadow: 1px 0 0 currentColor;
+}
+
+.header .btn-sign-up {
+  min-width: 144px;
+}
+
+.header .action {
+  margin-left: 57%;
+}
+
+.logo {
+  width: 104px;
+  height: 49px;
+  margin-left: -123px;
+}
+
+.search-box .search-box-container {
+  display: flex;
+  height: 42px;
+  margin-left: 200px;
+  background-color: #f1f2f6;
+  border-radius: 50px;
+  position: relative;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fa-search {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: #92949e;
+}
+
+.image-gps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-gps .gps_image {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.search-box .search-input {
+  background-color: #f1f2f6;
+  width: 250px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+}
+
+.products {
+  margin-top: 15px;
+  width: 21%;
+  overflow-y: auto;
+  max-height: 400px;
+  position: absolute;
+  left: 363px;
+  top: 44px;
+  z-index: 100;
+  background-color: #fff;
+}
+
+h3 {
+	padding: 8px 20px;
+}
+
+.product {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	/* margin-bottom: 10px; */
+	padding: 8px 20px;
+	height: 50px;
+}
+
+.product .product-detail{
+  width: 100%;
+}
+
+.product:hover {
+	background-color: #ddd;
+}
+
+
+
+.product h4 {
+	font-size: 15px;
+	color: #333;
+	margin-bottom: 15px;
+	font-weight: 600;
+  text-align:left;
+    padding-top: 14px;
+}
+
+
+
+
+
+/* =============================================================MAIN================================================================ */
+main {
+  margin-top: 10px;
+}
+/* ====================================================MAP-BOX============================================= */
+.map-box {
+  width: 100vw;
+  height: 600px;
+}
+.map-box-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background-image: url("../assets/image/map.JPG"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.map-box .map_fillter_top .map_fillter_inner_toggle {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  text-align: center;
+  right: 20px;
+  top: 340px;
+}
+
+.map-box .map_fillter_top .map_fillter_inner_toggle span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* ========================temperature-position=================== */
+
+.position {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  height: 33px;
+  padding-top: 8px;
+  font-size: 12px;
+}
+
+.temperature-position {
+  position: absolute;
+  background-color: #222222;
+  width: 285px;
+  height: 434px;
+  border-radius: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 145px;
+  right: 85px;
+  opacity: 0.8;
+}
+
+.thermometer {
+  color: #333;
+  position: relative;
+  width: 100%;
+  max-width: 65%;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#progress_ring {
+  width: 5em;
+  height: 5em;
+  position: relative;
+  left: 30%;
+}
+
+.te_title {
+  font-weight: 700;
+  font-size: 11px;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.progressbar-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 0px;
+  margin: 0px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.thermometer center {
+    display: block;
+    text-align: -webkit-center;
+    unicode-bidi: isolate;
+  
+}
+
+ .te_subtitle {
+  color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 29px;
+    padding: 6px 14px 3px 14px;;
+    position: relative;
+    width: fit-content;
+}
+
+.temp_box1 {
+  color: white;
+  font-size: 12px;
+  width: 100%;
+}
+
+ .row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.sensors_value1 {
+  text-align: center;
+  margin-top: 8px;
+  color: #f4f4f4;
+}
+
+.col-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+
+.title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fa-info-circle-info {
+  font-size: 9px;
+  color: white;
+  position: relative;
+  top: -8px;
+  left: 0px;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+
+.last-update p{
+  position: relative;
+  font-size: 12px;
+  text-align: center;
+  bottom: -104px;
+}
+
+.last-update{
+  margin-bottom: 115px;
+}
+
+/* =============================================DATA-BOX======================================== */
+.data-box{
+  display: flex;
+  width: 100%;
+}
+
+/* ======================WEATHER-FORECAST=============================== */
+.weather-forecast{
+  margin-top: 30px;
+  
+}
+#weather{
+  min-width: 350px;
+  height: 500px;
+  background: no-repeat center/cover;
+  text-align: center;
+  padding: 30px 20px;
+  /* border-radius: 10px; */
+  transition: 0.4s;
+  width: 410px;
+  /* background-image: url('./image/hot.png'); */
+  background-color: #222222;
+  opacity: 0.8;
+  margin-left: 50px;
+  height: 100%;
+}
+
+#weather input{
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: 19px;
+  box-shadow: 0 5px 4px rgba(0,0,0,0.2);
+  border: none;
+outline: none;
+border-radius: 0px 15px 0 15px;
+margin-bottom: 40px;
+  width: 100%;
+  transition: 0.5s;
+}
+
+#weather input:focus{
+background-color: rgba(255, 255, 255, 0.8);
+border-radius: 15px 0 15px 0;
+  
+}
+
+#weather .content{
+  color: #fff;
+}
+
+#weather .content .name {
+white-space: nowrap;
+font-size: 35px;
+text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}
+#weather .content .time {
+font-size: 15px;
+margin: 6px 0;
+}
+
+#weather .content .temperature{
+  font-size: 40px;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+border-radius: 15px;
+box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.5);
+margin: 20px 0 20px;
+font-weight: 800;
+  display: inline-block;
+}
+#weather .content .short-desc {
+font-size: 40px;
+font-weight: 600;
+text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+#weather .content .more-desc{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+#weather .content .more-desc > div {
+font-size: 16px;
+display: flex;
+flex-direction: column;
+}
+
+#weather .content .more-desc > div span {
+margin-top: 15px;
+}
+
+/* ==================================DATA==============================*/
+
+.data{
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 50px;
+  background-color: #fff;
+}
+
+.Air_Quality_Index2 {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 24px 0px 24px;
+}
+
+.Air_Quality_Index3 {
+  font-size: 16px;
+  color: #555555;
+  opacity: 0.8;
+  padding: 12px 24px 12px 24px;
+}
+
+.data-box .data .air-data{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.air-data .box {
+  margin: 10px;
+  width: 300px;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.air-data .box p{
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+
+
+.air-data .main-data .unit{
+  margin-top: 10px;
+}
+
+ .HUMI-box{
+  background-color: #168BD3;
+}
+
+ .TEMP-box{
+  background-color: #FEC15D;
+}
+
+ 
+.data .row.card-health-data-ranking {
+  margin-left: 25px;
+}
+
+.card-health-data-ranking .card-live-ranking-heading {
+  font-weight: bold;
+  font-size: 17px;
+  color: #289BD1;
+}
+
+.card-health-data-ranking .card-rank-icon {
+  width: .8em;
+  height: .8em;
+}
+
+.card-health-data-ranking .card-live-ranking-text {
+  font-size: 15px;
+  color: #383333;
+  margin-top: 5px;
+}
+
+.Health-img-text {
+  text-align: center;
+  width: 20%;
+}
+
+.Health-img-text p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Health-img-text div {
+  font-size: 12px;
+}
+
+#health_advice_container{
+  width: 900px;
+}
+
+.aqiSensortext {
+  height: 5px;
+  width: 15%;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+
+/* =================================GRAPH============================ */
+
+.graph_city{
+  margin: 30px 50px 30px;
+  position: relative;
+}
+
+.graph_city .Air_pollution_heading{
+  max-width: 50%;
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+#mysensorselect {
+  position: absolute;
+  right: 194px;
+  padding-top: 4px;
+}
+
+#mysensorselect .nice-select {
+  background: #ffffff;
+  border-radius: 4px;
+  border: unset;
+}
+
+.nice-select {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1px #e8e8e8;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  height: 42px;
+  line-height: 40px;
+  outline: none;
+  padding-right: 26px;
+  position: relative;
+  text-align: left !important;
+  transition: all .2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  width: auto;
+}
+
+.nice-select .list {
+  right: 0;
+  left: unset;
+}
+
+.nice-select .list {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(68, 68, 68, .11);
+  box-sizing: border-box;
+  margin-top: 4px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: scale(.75) translateY(-21px);
+  transform: scale(.75) translateY(-21px);
+  transition: all .2s cubic-bezier(.5,0,0,1.25), opacity .15s ease-out;
+  z-index: 9;
+}
+
+.nice-select .option.selected {
+  font-weight: 700;
+}
+
+.nice-select .option {
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px;
+  list-style: none;
+  min-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 29px;
+  text-align: left;
+  transition: all .2s;
+}
+
+#mysensortime {
+  position: absolute;
+  right: 91px;
+  padding-top: 4px;
+}
+
+#mysensortime .nice-select {
+  background: #ffffff;
+  border-radius: 4px;
+  border: unset;
+}
+
+.nice-select {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1px #e8e8e8;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  height: 42px;
+  line-height: 40px;
+  outline: none;
+  padding-right: 26px;
+  position: relative;
+  text-align: left !important;
+  transition: all .2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  width: auto;
+}
+
+.nice-select .list {
+  right: 0;
+  left: unset;
+}
+
+.nice-select .list {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(68, 68, 68, .11);
+  box-sizing: border-box;
+  margin-top: 4px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: scale(.75) translateY(-21px);
+  transform: scale(.75) translateY(-21px);
+  transition: all .2s cubic-bezier(.5,0,0,1.25), opacity .15s ease-out;
+  z-index: 9;
+}
+
+.nice-select .option.selected {
+  font-weight: 700;
+}
+
+.nice-select .option {
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px;
+  list-style: none;
+  min-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 29px;
+  text-align: left;
+  transition: all .2s;
+}
+
+.nice-select:active, .nice-select.open, .nice-select:focus {
+  border-color: #999;
+}
+
+
+
+.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+  background-color: #f6f6f6;
+}
+
+#mysensortime .nice-select:after {
+  height: 8px;
+  margin-top: -9px;
+  width: 8px;
+}
+
+.nice-select.open:after {
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.nice-select:after {
+  border-bottom: 2px solid #999;
+  border-right: 2px solid #999;
+  content: '';
+  display: block;
+  height: 5px;
+  margin-top: -4px;
+  pointer-events: none;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  -webkit-transform-origin: 66% 66%;
+  transform-origin: 66% 66%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition: all .15s ease-in-out;
+  width: 5px;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+/* ==========================================Air Quality Index Scale=============================== */
+.Parameters_card {
+  background-color: #fff;
+  margin-right: 45px;
+  margin-left: 50px;
+  padding-bottom: 40px;
+}
+
+.Parameters_heading {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.Parameters_text {
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+.col-md-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.Parameters_card_section {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  height: 90px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.Parameters_card_section img{
+  position: absolute;
+  top: 15%;
+}
+
+.Parameters_card_value {
+  position: absolute;
+  top: 48%;
+  left: 11%;
+  transform: translate(0px, -50%);
+  margin: 0px 8px;
+}
+
+.Parameters_card_value_text {
+  margin-right: 22px;
+  margin-left: 18px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Parameters_card_value_text1 {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.Parameters_card_value_text2 {
+  font-size: 17px;
+  color: #555555;
+  padding: 5px 5px 5px 5px;
+  position: absolute;
+  top: 50%;
+  left: 171px;
+  transform: translate(0px, -50%);
+  opacity: 0.8;
+}
+
+/* ===============================footer================================ */
+
+.footer{
+  background: #fff;
+  padding: 35px 135px 0;
+  margin-top: 35px;
+}
+
+.footer .row{
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #59554b;
+}
+
+.footer .row .column{
+  width: 21.6%;
+}
+.footer .row .column:first-child{
+  width: 35%;
+}
+
+.footer .desc{
+  margin-top: 18px;
+  max-width: 267px; /*Khi co trình duyệt lại, nội dung sẽ co theo*/
+  color: #bfbcb2;
+  font-size: 1.4rem;
+  line-height: 1.86;
+}
+
+.footer .socials{
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.footer .title{
+  padding-right: 48px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #5f5b53;
+  display: inline-block;
+  color: #289dd3;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+footer .list{
+  margin-top: 15px;
+}
+
+.footer .list a{
+  display: inline-block;
+  margin-top: 12px;
+  color: #bfbcb2;
+  font-size: 1.4rem;
+  line-height: 1.86;
+}
+
+.footer .list .li:last-child{
+  margin-bottom: 0;
+}
+
+.footer .list strong{
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.86;
+}
+
+.copyright{
+  background-color: #222222;
+  padding: 10px 0 10px;
+  color: #807d74;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.86;
+}
